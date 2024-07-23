@@ -1,0 +1,204 @@
+<ng-container *ngIf="isLoading; else info">
+    <div class="p-5">
+        <ngx-skeleton-loader animation="progress" count="2"></ngx-skeleton-loader>
+    </div>
+</ng-container>
+
+<ng-template #info>
+    <section class="product-details my-5">
+        <div class="container">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='12'%3E%3Cpath d='M6.01283 0.191854L0.667879 5.5369C0.544367 5.66042 0.476562 5.8251 0.476562 6.00451C0.476562 6.18032 0.544367 6.3451 0.667879 6.46841L6.00776 11.8085C6.13137 11.932 6.29615 12 6.47195 12C6.64776 12 6.81263 11.9321 6.93615 11.8085L7.32941 11.4152C7.45292 11.2917 7.52112 11.1268 7.52112 10.951C7.52112 10.7752 7.45292 10.6104 7.32941 10.4868L2.84524 6.00266L7.33458 1.51351C7.458 1.39 7.52609 1.22522 7.52609 1.04931C7.52609 0.873509 7.458 0.708828 7.33458 0.585218L6.94112 0.191854C6.68522 -0.0639495 6.26873 -0.0639495 6.01283 0.191854Z' fill='currentColor'/%3E%3C/svg%3E&#34;);">
+                <ol class="breadcrumb font16 wt-500">
+                    <li class="breadcrumb-item"><a >الرئيسية</a></li>
+                    <li class="breadcrumb-item" *ngFor="let item of productInfo.categories"><a>{{item.name}}</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{productInfo.name}}</li>
+                </ol>
+            </nav>
+            <div class="row py-md-4 border-bottom position-relative">
+                <div class="col-md-6">
+                    <app-product-gallery [gallery]="productInfo?.images"></app-product-gallery>
+                </div>
+
+                <div class="col-md-6">
+                    <!-- first section -->
+                    <div class="d-md-flex justify-content-between product border-bottom pb-2 py-3
+                    ">
+                        <div class="col-md-10">
+                            <h2 class="font20 wt-700">{{productInfo.name}}</h2>
+                            <div class="d-flex text-md-center">
+                                <!-- attributes -->
+                                <div class="font16 wt-500 border-end pe-3 me-3" *ngFor="let option of productInfo.attributes">
+                                    <label class="content-light text-capitalize">{{option.name}} : </label>
+                                    <span>{{option.value}}</span>
+                                </div>
+                                <div class="">
+                                    <label for="name" class="content-light">التقييم: </label>
+                                    <span class="wt-700 font14 d-inline-block ms-auto star px-md-1">
+                                        <ng-container *ngIf="productInfo.ratingAverage; else noReview">
+                                            <i [innerHTML]="icons.star | safeHtml"></i> {{productInfo.ratingAverage}}
+                                        </ng-container>
+                                        <ng-template #noReview>No rating available </ng-template>
+                                    </span>
+                                    <span class="content-light mx-md-1">({{productInfo.reviewsCount}})</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-1 d-flex hover">
+                            <i (click)="addWishlist(productInfo.id)" [innerHTML]="icons.heart | safeHtml" class="bg-white me-3 me-md-0 heart" title="اضف إلى المفضلة"></i>
+                            <i (click)="compare(productInfo.id)" [innerHTML]="icons.compareBlack | safeHtml" class="bg-white mx-md-2 mt-1 mt-md-0 me-3 me-md-0 d-none d-md-block" title="يقارن"></i>
+                        </div>
+                    </div>
+
+                    <p class="py-3 wt-700 font20 theme-color mb-1">
+                        <span class="font25 wt-800">{{productInfo.calculatedProductPrice.priceString}}</span>
+                        <span class="content-light mb-1 px-3 font18 wt-600 text-decoration-line-through">{{productInfo.calculatedProductPrice.oldPriceString}}</span>
+                        <span class="p-1 rounded font14 wt-700 bg-primaryLight">خصم {{productInfo.calculatedProductPrice.percentOfSaving}}%</span>
+                    </p>
+                    <!-- variations  -->
+                    <div *ngIf="productInfo.availableOptions">
+                        <div class="font16 wt-500" *ngFor="let option of productInfo.availableOptions">
+                            <ng-container *ngIf="option.optionName == 'Size'; else selectColor">
+                                <span class="content-light text-capitalize">{{option.optionName}}:</span>
+                            <span class="px-1">
+                               {{activeSize}}
+                            </span>
+                            <p class="mt-2">
+                                <button (click)="activeSize = item" *ngFor="let item of option.values"
+                            [ngClass]="activeSize == item ? 'border-danger border-1' : 'border-0'"
+                            class="gbBtn font16 wt-500 rounded bg-light  ms-2">{{item}}</button>
+                            </p>
+                            </ng-container>
+                            <ng-template #selectColor>
+                                <span class="content-light text-capitalize">{{option.optionName}}:</span>
+                            <span class="px-1">
+                                {{activeColor}}
+                            </span>
+                            <p class="mt-2">
+                                <button [style]="{'background': item}" (click)="activeColor = item" *ngFor="let item of option.values"
+                                [ngClass]="activeColor == item ? 'border-danger border-1' : 'border-0'"
+                                class="gbBtn font16 wt-500 rounded text-white ms-2">{{item}}</button>
+                            </p>
+                            </ng-template>
+                        </div>
+                        <!-- <div class="col-md-5 d-flex ps-0 pb-4">
+                            <div class="image col-3 ">
+                                <img alt="" class="img-thumbnail border-danger border-1" src="assets/images/phone.png">
+                            </div>
+                            <div class="col-3 align-self-center ms-3">
+                                <img alt="" class="img-thumbnail" src="assets/images/phone.png">
+                            </div>
+                        </div> -->
+                        
+                    </div>
+                    
+                    <p class="font16 wt-500 text-danger">
+                        <span>متبقي {{productInfo.stockQuantity}} فقط في المخزون</span>
+                    </p>
+
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-md-4">
+                            <div class="dropdown d-inline-block text-center border rounded p-2 w-100">
+                                <span class="content-light font16 wt-500">الكمية:</span>
+                                <button class="border-0 wt-700 font14 p-2 pe-md-0 dropdown-toggle bg-transparent" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="font16 wt-500 d-inline-block me-md-5 me-2 ms-md-2 p-0 border-start ps-md-2">x {{quantity}}</span> <i
+                                        [innerHTML]="icons.downArrowBlack | safeHtml"></i></button>
+                                <ul class="dropdown-menu border-0" aria-labelledby="dropdownMenuButton1">
+                                    <li *ngFor="let item of [].constructor(10); index as index">
+                                        <a class="dropdown-item" (click)="quantity = index+1">{{index+1}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <button (click)="addToCart(productInfo)" type="button" class=" mt-3 mt-md-0 btn w-100 button text-white theme-bg border-0 font14 addToCartBtn">
+                                <i class="me-1" [innerHTML]="icons.plusRed | safeHtml"></i>اضف الى عربة التسوق
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- //third section  -->
+                    <div class="row bg-extralight p-md-3 py-3 rounded my-3 text-center">
+                        <div class="col-md-8">
+                            <span class="font16 wt-500">يمكنك تقسيط هذا المنتج على 4 شهور مع  <img src="assets/images/valU1.svg" alt="valU" class=" px-md-2 mt-2 mt-md-0 d-block mx-auto d-md-inline-block"></span>
+                        </div>
+                        <div class="col-md-4 text-end my-2 my-md-0 text-center text-md-end">
+                            <button class="viewMore rounded border-0 text-white padding">
+                                عرض المزيد من التفاصيل
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- fourth section  -->
+                    <div class="row border-top border-bottom pt-4 pb-2 flex-column-reverse flex-md-row">
+                        <div class="col-md-8">
+                            <p class="font16 wt-400">
+                                <span>
+                                    <i [innerHTML]="icons.truck | safeHtml"></i>
+                                </span>
+                                <span class="content-light ms-2">شحن إلى:</span>
+                                <span> الاسكندرية - سيدي جابر - عمارة الامل <i
+                                        [innerHTML]="icons.downArrowBlack | safeHtml"></i></span>
+                            </p>
+                            <p class="font16 wt-500 p-0">
+                                <span class="content-light">المنتج يصلك بين:</span>
+                                <span> الاثنين 28 نوفمبر - الاربعاء 30 نوفمبر</span>
+                            </p>
+                        </div>
+                        <div class="col-md-4 text-md-end freeShipping my-2 my-md-0">
+                            <span class="p-2 px-4 d-inline-block rounded font14 wt-700 bg-extralight">شحن مجاني</span>
+                        </div>
+                    </div>
+                    <!-- fifth section  -->
+                    <div class="row my-3">
+                        <div class="col-md-6 ">
+                            <div class="p-3 border bg-light d-flex align-items-center rounded ">
+                                <i [innerHTML]="icons.return | safeHtml"></i>
+                                <span class="font16 wt-500 ps-3 return">
+                                هذا المنتج يمكن استرجاعه او استبداله خلال 14 يوم
+                            </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <div class="p-3 border bg-light d-flex justify-content-between rounded mt-3 mt-md-0">
+                                <i class="pt-1" [innerHTML]="icons.store | safeHtml"></i>
+                                <div class="me-2 pt-1">
+                                    <h2 class="font18 wt-600 m-0">Sara Store</h2>
+                                    <span class="wt-700 font14 d-inline-block ms-auto star px-1">
+                                    <i [innerHTML]="icons.star | safeHtml"></i> 4.8
+                                </span>
+                                </div>
+                                <div>
+                                    <button class="theme-bg font12 wt-500 text-white border-0 rounded padding"> عرض منتجات
+                                    البائع</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <app-overview [data]="productInfo"></app-overview>
+        </div>
+    </section>
+
+    <div class="bg-light p-2"></div>
+    <section class="best-selling offers py-4 mt-md-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 d-flex d-md-block justify-content-between align-items-center">
+                    <h3 class="wt-800 font25 m-0">منتجات ذات صلة</h3>
+                </div>
+                <div class="col-md-6 text-end d-none d-md-block">
+                    <a  class="theme-color wt-600 font20">عرض الكل</a>
+                </div>
+            </div>
+            <div class="p-md-4 pt-4 ps-md-0">
+                <div class="px-md-3">
+                    <app-products-carousel [data]="productInfo.relatedProducts"></app-products-carousel>
+                </div>
+                <a class="viewAll d-md-none theme-bg text-center rounded-3 m-3 text-white wt-700 font16 d-block" >عرض الكل</a>
+            </div>
+        </div>
+    </section>
+</ng-template>

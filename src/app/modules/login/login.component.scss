@@ -1,0 +1,46 @@
+@import "../../../assets/style/variables";
+.signup-form {
+    max-width: 450px;
+    .action-btns a {
+        color: $content-main;
+        &:hover {
+            color: $primary;
+        }
+    }
+    .or_text {
+        color: $content-light;
+        &::before {
+            content: '';
+            height: 1px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            background: $bg-medium;
+        }
+        span {
+            position: relative;
+            z-index: 1;
+        }
+    }
+    button.outfill {
+        border: 2px solid $primary;
+        padding: 11px;
+    }
+}
+
+@media (max-width:767.98px) {
+    .action-btns {
+        display: flex;
+        justify-content: space-around;
+        a {
+            padding: 8px !important;
+            font-size: 12px;
+        }
+    }
+    .font18 {
+        font-size: 13px;
+    }
+}

@@ -1,0 +1,25 @@
+<div class="mega-wrapper position-relative">
+    <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide *ngFor="let category of categories; index as index">
+            <ng-container *ngIf="style == 'plain'; else elsePart">
+                <div [routerLink]="['/category',category.id]" class="cat-item wt-700 font14 my-1 d-flex align-items-center" [title]="category.name">
+                    <!-- <span class="" [innerHTML]="category.icon | safeHtml"></span> -->
+                    <img onError="this.src='assets/icons/favicon.svg'" [src]="baseUrl+category.thumbnailImageUrl" [alt]="category.name">
+                    <span class="title"> {{category.name}}</span>
+                </div>
+            </ng-container>
+
+            <ng-template #elsePart>
+                <div [routerLink]="['/category',category.id]" class="cat-item wt-700 font14 my-1 text-center" [title]="category.name">
+                    <div class="thumb bg-light p-2 rounded m-1 d-flex">
+                        <img onError="this.src='assets/icons/favicon.svg'" class="img-fluid" [src]="baseUrl+category.thumbnailImageUrl" [alt]="category.name">
+                    </div>
+                    <div class="title"> {{category.name}}</div>
+                </div>
+            </ng-template>
+        </ng-template>
+    </owl-carousel-o>
+    <div class="menu" *ngIf="style == 'plain'">
+        <app-megamenu></app-megamenu>
+    </div>
+</div>

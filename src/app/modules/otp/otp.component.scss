@@ -1,0 +1,41 @@
+@import "../../../assets/style/variables";
+.font25 {
+    font-size: 24px;
+    @media (max-width: 767.98px) {
+        font-size: 17px;
+    }
+}
+
+.opt-form {
+    max-width: 450px;
+    input {
+        height: 80px;
+        width: 80px;
+        @media (max-width: 767.98px) {
+            height: 50px;
+            width: 50px;
+        }
+    }
+}
+
+.phone-opt {
+    color: #696362;
+}
+
+.header_txt a:hover {
+    color: $primary !important;
+}
+
+.resend {
+    color: rgba(105, 99, 98, 1);
+}
+
+.font23 {
+    font-size: 24px;
+}
+
+@media (max-width:767.98px) {
+    .font23 {
+        font-size: 16px;
+    }
+}

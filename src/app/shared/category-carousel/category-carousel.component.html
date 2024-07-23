@@ -1,0 +1,20 @@
+<div class="carousel-wrapper" [ngClass]="theme">
+    <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide *ngFor="let slide of carousel">
+            <div class="row align-items-center px-md-5">
+                <div class="col-md-8 pb-3 pb-md-0 text-center text-white">
+                    <div class="p-4 p-md-0">
+                        <h2 class="text-white wt-800 h1 m-0 mb-2">{{slide.title}}</h2>
+                        <p class="wt-600 font18" [innerHTML]="slide.content"></p>
+                        <button type="button" class="btn theme-color bg-white p-2 px-5 wt-800 mt-4">
+                            <span class="d-inline-block mx-4 my-1">تسوق الآن</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <img class="img-fluid banner-image" [src]="slide.image" [alt]="slide.type">
+                </div>
+            </div>
+        </ng-template>
+    </owl-carousel-o>
+</div>

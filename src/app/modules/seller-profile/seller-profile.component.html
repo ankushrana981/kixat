@@ -1,0 +1,206 @@
+<div class="container">
+    <section class="sellerProfile my-4">
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+            <div class="row py-md-5 py-3 my-md-5 my-3  bg-extra-light rounded">
+                <div class="col-md-3 d-flex align-items-center justify-content-md-center border-none border-end">
+                    <div class="p-3 store"><i [innerHTML]="icons.store | safeHtml"></i></div>
+                    <div class="wt-600">
+                        <div class="font18 content-light">البائع</div>
+                        <div class="font25 wt-800">Sara Store</div>
+                    </div>
+                </div>
+                <div class="col-md-3 ms-md-3">
+                    <div class="border-end border-none">
+                        <div class="wt-600 font18 content-light mb-1">متوسط التقييمات</div>
+                        <p class="wt-800 font32">
+                            <span class="me-2">4.8</span>
+                            <span class="fullStar">
+                            <i class="me-1" [innerHTML]="icons.star | safeHtml"></i>
+                            <i class="me-1" [innerHTML]="icons.star | safeHtml"></i>
+                            <i class="me-1" [innerHTML]="icons.star | safeHtml"></i>
+                            <i class="me-1" [innerHTML]="icons.star | safeHtml"></i>
+                            <i [innerHTML]="icons.star | safeHtml"></i>
+                        </span>
+                        </p>
+                        <div class="wt-600 font18 content-light">عدد التقييمات</div>
+                        <div class="wt-800 font32">
+                            <span>5</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4  my-3 my-md-0">
+                    <div class="progressBar">
+                        <div class="d-flex align-items-center">
+                            <div class="col-1 d-flex align-items-center justify-content-evenly">
+                                <span class="font18 wt-600 content-light">5</span>
+                                <i [innerHTML]="icons.star | safeHtml"></i>
+                            </div>
+                            <div class="col-8">
+                                <div class="progress">
+                                    <span class="progress-bar bg-success" role="progressbar" style="width: 80%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></span>
+                                </div>
+                            </div>
+                            <div class="col-2 ms-2 content-light"><span>80%</span></div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="col-1 d-flex align-items-center justify-content-evenly">
+                                <span class="font18 wt-600 content-light">4</span>
+                                <i [innerHTML]="icons.star | safeHtml"></i>
+                            </div>
+                            <div class="col-8">
+                                <div class="progress">
+                                    <span class="progress-bar bg-success" role="progressbar" style="width: 7%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></span>
+                                </div>
+                            </div>
+                            <div class="col-2 ms-2 content-light"><span>7%</span></div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="col-1 d-flex align-items-center justify-content-evenly">
+                                <span class="font18 wt-600 content-light">3</span>
+                                <i [innerHTML]="icons.star | safeHtml"></i>
+                            </div>
+                            <div class="col-8">
+                                <div class="progress">
+                                    <span class="progress-bar bg-success" role="progressbar" style="width: 6%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></span>
+                                </div>
+                            </div>
+                            <div class="col-2 ms-2 content-light"><span>6%</span></div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="col-1 d-flex align-items-center justify-content-evenly">
+                                <span class="font18 wt-600 content-light">2</span>
+                                <i [innerHTML]="icons.star | safeHtml"></i>
+                            </div>
+                            <div class="col-8">
+                                <div class="progress">
+                                    <span class="progress-bar bg-success" role="progressbar" style="width: 5%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></span>
+                                </div>
+                            </div>
+                            <div class="col-2 ms-2 content-light"><span>5%</span></div>
+                        </div>
+
+                        <div class="d-flex align-items-center">
+                            <div class="col-1 d-flex align-items-center justify-content-evenly">
+                                <span class="font18 wt-600 content-light">1</span>
+                                <i [innerHTML]="icons.star | safeHtml"></i>
+                            </div>
+                            <div class="col-8">
+                                <div class="progress">
+                                    <span class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></span>
+                                </div>
+                            </div>
+                            <div class="col-2 ms-2 content-light"><span>0%</span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- review  -->
+            <div class="review">
+                <!-- heading tab -->
+                <div class="d-flex justify-content-center justify-content-md-end ">
+                    <div class="dropdown d-inline-block text-end border rounded p-2">
+                        <span class="content-light font16 wt-500">الترتيب حسب</span>
+                        <button class="border-0  wt-700 font14 p-md-3 pe-0 dropdown-toggle bg-transparent" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="font16 wt-500 d-inline-block me-4 mx-2 p-0 border-start ps-2">
+                            اضيفت مؤخراً</span> <i
+                            [innerHTML]="icons.downArrowBlack | safeHtml"></i></button>
+                        <ul class="dropdown-menu border-0" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- content customer review  -->
+                <div class="card my-4">
+                    <ul class="list-group list-group-flush p-md-3">
+                        <li class="list-group-item">
+                            <div class="row my-3">
+                                <div class="col-md-2">
+
+                                    <div class="font14 wt-700">Sara Y***</div>
+                                    <div class="wt-400 font12 content-light">25 نوفمبر 2022</div>
+                                    <span class="star">
+                                            <i [innerHTML]="icons.star | safeHtml"></i>
+                                            <i [innerHTML]="icons.star | safeHtml"></i>
+                                            <i [innerHTML]="icons.star | safeHtml"></i>
+                                            <i [innerHTML]="icons.star | safeHtml"></i>
+                                            <i [innerHTML]="icons.star | safeHtml"></i>
+                                        </span>
+                                </div>
+                                <div class="col-md-10">
+                                    <span class="font16 wt-500">​​​​​​​​​هناك حقيقة مثبتة منذ زمن طويل وهي
+                                    أن المحتوى المقروء لصفحة
+                                    ما
+                                    سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات
+                                    في الصفحة التي يقرأها ولذلك
+                                    يتم
+                                    استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما-
+                                    للأحرف عوضاً عن استخدام "هنا
+                                    يوجد محتوى نصي
+
+                                </span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row my-3">
+                                <div class="col-md-2">
+
+                                    <div class="font14 wt-700">Sara Y***</div>
+                                    <div class="wt-400 font12 content-light">25 نوفمبر 2022</div>
+                                    <span class="star">
+                                            <i [innerHTML]="icons.star | safeHtml"></i>
+                                            <i [innerHTML]="icons.star | safeHtml"></i>
+                                            <i [innerHTML]="icons.star | safeHtml"></i>
+                                            <i [innerHTML]="icons.star | safeHtml"></i>
+                                            <i [innerHTML]="icons.star | safeHtml"></i>
+                                        </span>
+                                </div>
+                                <div class="col-md-10">
+                                    <span class="font16 wt-500">​​​​​​​​​هناك حقيقة مثبتة منذ زمن طويل وهي
+                                    أن المحتوى المقروء لصفحة
+                                    ما
+                                    سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات
+                                    في الصفحة التي يقرأها ولذلك
+                                    يتم
+                                    استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما-
+                                    للأحرف عوضاً عن استخدام "هنا
+                                    يوجد محتوى نصي
+
+                                </span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="text-center">
+                    <button class="btn px-3 text-white lg-button theme-bg">
+                        عرض المزيد
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<section class="best-selling offers py-md-4 mt-md-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 d-flex d-md-block justify-content-between align-items-center">
+                <h3 class="wt-800 font25 m-0">منتجات البائع</h3>
+            </div>
+            <div class="col-md-6 text-end d-none d-md-block">
+                <a href="#" class="theme-color wt-600 font20">عرض الكل</a>
+            </div>
+        </div>
+        <div class="p-md-4 pt-4">
+            <div class="px-md-3">
+                <app-products-carousel [data]="products"></app-products-carousel>
+            </div>
+            <a class="viewAll d-md-none theme-bg text-center rounded-3 m-3 text-white wt-700 font16 d-block" href="#">عرض الكل</a>
+        </div>
+    </div>
+</section>

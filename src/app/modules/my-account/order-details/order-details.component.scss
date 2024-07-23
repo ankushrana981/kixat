@@ -1,0 +1,87 @@
+@import "../../../../assets/style/variables";
+ul li a {
+    &:hover {
+        color: $primary;
+    }
+}
+
+.orderDetails {
+    .refundBtn {
+        .button {
+            border: 1px solid $content-main !important;
+        }
+    }
+    .shippingAddress {
+        .home {
+            background: $content-light;
+        }
+        .default {
+            background: $secondary;
+        }
+    }
+    .shipment {
+        .values {
+            border: 1px solid $secondary;
+        }
+    }
+}
+
+.shipment {
+    overflow: hidden;
+    @media (max-width: 767.98px) {
+        .row {
+            margin: 0;
+        }
+    }
+}
+
+.ovflow {
+    @media (min-width: 768px) {
+        overflow-x: hidden;
+        overflow-y: auto;
+        max-height: 280px;
+        margin-left: -12px;
+    }
+}
+
+ul.process {
+    li {
+        position: relative;
+        padding-right: 25px;
+        &::before,
+        &::after {
+            content: '';
+            height: 10px;
+            width: 10px;
+            border-radius: 100%;
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 20px;
+            background: #fff;
+            box-shadow: 0px 0px 0px 5px $secondary;
+            z-index: 1;
+        }
+        &::after {
+            height: 100%;
+            width: 2px;
+            box-shadow: none;
+            background: none;
+            border-right: 1px dashed $content-light;
+            right: 4px;
+            z-index: 0;
+        }
+        &:last-child::after {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .shippingAddress {
+        margin: 0;
+    }
+    .paymentMethod {
+        height: auto !important;
+    }
+}

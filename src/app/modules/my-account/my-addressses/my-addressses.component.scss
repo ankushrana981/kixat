@@ -1,0 +1,83 @@
+@import "../../../../assets/style/variables";
+ul li a {
+    &:hover {
+        color: $primary;
+    }
+}
+
+.row {
+    .col-md-2.bg-extra-light::before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        width: 50vw;
+        background: $bg-extra-light;
+        z-index: -1;
+    }
+}
+
+.card {
+    border-color: $bg-medium;
+}
+
+.btn-default {
+    background: $content-light;
+}
+
+.address {
+    label {
+        cursor: pointer;
+        input {
+            display: none;
+        }
+        .addressItem {
+            position: relative;
+            padding-left: 90px !important;
+            @media (max-width: 767.98px) {
+                padding-left: 30px !important;
+                padding-top: 7px !important;
+            }
+            &::before,
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                left: 25px;
+                top: 20px;
+                width: 50px;
+                height: 24px;
+                background: $bg-medium;
+                border-radius: 12px;
+                transition: all ease-in-out 0.4s;
+                @media (max-width: 767.98px) {
+                    width: 46px;
+                    left: 8px;
+                }
+            }
+            &::after {
+                width: 24px;
+                background: #fff;
+                left: 51px;
+                @media (max-width: 767.98px) {
+                    left: 8px;
+                }
+            }
+        }
+        input:checked+.addressItem {
+            background: $secondary-light;
+            &::before {
+                background: #E7CD8B;
+            }
+            &:after {
+                background: $secondary;
+                left: 25px;
+                @media (max-width: 767.98px) {
+                    left: 30px;
+                }
+            }
+        }
+    }
+}

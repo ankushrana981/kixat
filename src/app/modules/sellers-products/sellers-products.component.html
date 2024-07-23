@@ -1,0 +1,86 @@
+<section class="py-md-4">
+    <div class="container">
+        <h2 class="wt-800 font25 mb-4">Sara Store</h2>
+
+        <div class="row">
+            <div class="col-md-2">
+                <app-filters></app-filters>
+            </div>
+            <div class="col-md-10">
+                <div class="filter-row p-3 bg-extra-light rounded mb-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <ul class="nav nav-pills p-0 m-0" id="pills-tab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="bg-transparent nav-link px-2 active" data-bs-toggle="pill" data-bs-target="#box" type="button" role="tab" aria-selected="true" [innerHTML]="icons.filterBox | safeHtml"></button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="bg-transparent nav-link px-2 " data-bs-toggle="pill" data-bs-target="#list" type="button" role="tab" aria-selected="false" [innerHTML]="icons.filterList | safeHtml"></button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-8 text-end dropdown">
+                            <span class="wt-500 font14 content-light">الترتيب حسب: </span>
+                            <button class="border-0  wt-700 font14 p-0 dropdown-toggle bg-transparent" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <span>السعر: من الاعلى إلى الاقل</span> <i [innerHTML]="icons.downArrowBlack | safeHtml"
+                  class="ms-1"></i></button>
+                            <ul class="dropdown-menu border-0" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content p-md-0" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="box" role="tabpanel">
+                        <div class="row m-md-0 px-md-0 px-2">
+                            <div class="col-6 col-md-3 p-0" *ngFor="let item of products">
+                                <app-product (modalData)="getModalData($event)" [view]="" [data]="item"></app-product>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="list" role="tabpanel">
+                        <div class="mb-3" *ngFor="let item of products">
+                            <app-product (modalData)="getModalData($event)" [view]="'list'" [data]="item"></app-product>
+                        </div>
+                    </div>
+                </div>
+
+
+                <nav aria-label="Page navigation example" class="mt-4 mb-4 mb-md-0">
+                    <ul class="pagination justify-content-center pt-md-4 mb-0">
+                        <li class="page-item">
+                            <a class="page-link left-arrow theme-bg px-3 py-2 border-0 rounded-3" aria-label="Previous" [innerHTML]="icons.leftArrow | safeHtml"></a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link px-3 py-2 border-0 wt-600 font18 content-medium">1</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link px-3 py-2 border-0 wt-600 font18 content-medium">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link right-arrow theme-bg px-3 py-2  border-0  rounded-3" aria-label="Next" [innerHTML]="icons.leftArrow | safeHtml"></a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Modal -->
+<div class="modal fade" id="quickModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl">
+        <div class="modal-content border-0 rounded-3 h-100">
+            <div class="modal-header p-0 border-0 text-start justify-content-end">
+                <button type="button" class="btn-close ms-0 p-4" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body pt-md-0">
+                <app-quick-modal [product]="productId"></app-quick-modal>
+            </div>
+        </div>
+    </div>
+</div>

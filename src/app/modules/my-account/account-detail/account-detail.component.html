@@ -1,0 +1,155 @@
+<div class="d-flex align-items-center justify-content-between flex-column flex-md-row">
+    <h2 class="font25 wt-800 m-0 mb-4 mb-md-0">حسابي</h2>
+    <ul class="nav nav-pills m-0" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#info-tab" type="button" role="tab" aria-controls="offer1" aria-selected="true">معلوماتي الشخصية</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#password" type="button" role="tab" aria-controls="offer1" aria-selected="true">تغيير كلمة المرور</button>
+        </li>
+    </ul>
+</div>
+
+<div class="tab-content mt-4">
+    <div class="tab-pane fade show active" id="info-tab" role="tabpanel">
+        <div class="card">
+            <div class="card-header bg-light font18 wt-600 border-0 p-2">
+                <div class="my-1 px-2">
+                    <i class="me-2" [innerHTML]="icons.myAccountRed | safeHtml"></i> معلوماتي الشخصية
+                </div>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="form" class="mt-md-3">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group mb-3">
+                                <div class="control-wrapper position-relative">
+                                    <span class="icon position-absolute" [innerHTML]="icons.userLight | safeHtml">      
+                                                    </span>
+                                    <input formControlName="firstName" id="firstName" type="text" class="form-control font16 wt-500">
+                                    <label for="firstName" class="position-absolute">الاسم الاول</label>
+                                    <p *ngIf="form.controls['firstName'].invalid && form.controls['firstName'].touched" class="text-danger text-start"> <i [innerHTML]="icons.infoIcon | safeHtml"></i> يرجى إدخال بريد الكتروني صحيح </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group mb-3">
+                                <div class="control-wrapper position-relative">
+                                    <span class="icon position-absolute" [innerHTML]="icons.userLight | safeHtml">                               
+                                                        </span>
+                                    <input formControlName="lastName" id="lastName" type="text" class="form-control font16 wt-500">
+                                    <label for="lastName" class="position-absolute">اسم العائلة</label>
+                                    <p *ngIf="form.controls['lastName'].invalid && form.controls['lastName'].touched" class="text-danger text-start"> <i [innerHTML]="icons.infoIcon | safeHtml"></i> يرجى إدخال بريد الكتروني صحيح </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group mb-3">
+                                <div class="control-wrapper position-relative">
+                                    <span class="icon position-absolute" [innerHTML]="icons.email | safeHtml">                            
+                                                    </span>
+                                    <input formControlName="email" id="email" type="email" class="form-control font16 wt-500">
+                                    <label for="email" class="position-absolute">البريد الالكتروني</label>
+                                    <p class="m-0 mt-2 content-light font12 wt-500">لا يمكنك تعديل هذا الحقل</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="row">
+                                <div class="col-md-3 col-4">
+                                    <div class="control-wrapper">
+                                        <div class="form-group mb-3">
+                                            <select id="inputState" class="form-select form-control form-txt" placeholder="State">
+                                                            <option value="State" selected="">+20</option>
+                                                            <option value="">1</option>
+                                                            <option value="">2</option>
+                                                            <option value="">3</option>
+                                                          </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-9 col-8">
+                                    <div class="form-group mb-3">
+                                        <div class="control-wrapper position-relative">
+                                            <span class="icon position-absolute" [innerHTML]="icons.phone | safeHtml">                       
+                                                    </span>
+                                            <input formControlName="phone" id="number" type="text" class="form-control font16 wt-500">
+                                            <label for="number" class="position-absolute">رقم الهاتف</label>
+                                            <p *ngIf="form.controls['phone'].invalid && form.controls['phone'].touched" class="text-danger text-start"> <i [innerHTML]="icons.infoIcon | safeHtml"></i> يرجى إدخال بريد الكتروني صحيح </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-10 text-end">
+                            <button type="submit" class="rounded-3 theme-bg border-0 text-white lg-button font16 wt-500 px-4">تحديث معلوماتك</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane fade" id="password" role="tabpanel">
+        <div class="card">
+            <div class="card-header bg-light font18 wt-600 border-0 p-2">
+                <div class="my-1 px-2">
+                    <i class="me-2" [innerHTML]="icons.passwordRed | safeHtml"></i> تغيير كلمة المرور
+                </div>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="form2" class="mt-md-3">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="control-wrapper position-relative">
+                                <span class="icon position-absolute" [innerHTML]="icons.key | safeHtml"> </span>
+                                <input [type]="show ? 'text' : 'password'" formControlName="oldpassword" id="password" type="password" class="form-control font16 wt-500 text-start">
+                                <label for="oldpassword" class="position-absolute">كلمة المرور الحالية</label>
+                                <i [ngClass]="{'show': show}" (click)="togglePassword()" class="cursor position-absolute password-icon" [innerHTML]="icons.eye | safeHtml"> </i>
+                                <p *ngIf="form2.controls['oldpassword'].invalid && form2.controls['oldpassword'].touched" class="text-danger"> <i [innerHTML]="icons.infoIcon | safeHtml"></i> يرجى إدخال بريد الكتروني صحيح </p>
+                            </div>
+                        </div>
+                        <div class="col-md-5 mt-3 mt-md-0">
+                            <div class="control-wrapper position-relative">
+                                <span class="icon position-absolute" [innerHTML]="icons.key | safeHtml"></span>
+                                <input [type]="show2 ? 'text' : 'password'" formControlName="confirmPassword" id="confirmPassword" type="password" class="form-control font16 wt-500 text-start">
+                                <label for="confirmPassword" class="position-absolute">كلمة المرور الجديدة</label>
+                                <i [ngClass]="{'show': show2}" (click)="togglePassword2()" class="cursor position-absolute password-icon" [innerHTML]="icons.eye | safeHtml"></i>
+                                <p *ngIf="form2.controls['confirmPassword'].invalid && form2.controls['confirmPassword'].touched" class="text-danger"> <i [innerHTML]="icons.infoIcon | safeHtml"></i> يرجى إدخال بريد الكتروني صحيح </p>
+                            </div>
+                        </div>
+                        <div class="col-md-5 mt-3 ">
+                            <div class="control-wrapper position-relative">
+                                <span class="icon position-absolute" [innerHTML]="icons.key | safeHtml"></span>
+                                <input [type]="show3 ? 'text' : 'password'" formControlName="confirmPassword" id="confirmPassword" type="password" class="form-control font16 wt-500 text-start">
+                                <label for="confirmPassword" class="position-absolute">تأكيد كلمة المرور الجديدة</label>
+                                <i [ngClass]="{'show': show3}" (click)="togglePassword3()" class="cursor position-absolute password-icon" [innerHTML]="icons.eye | safeHtml"></i>
+                                <p *ngIf="form2.controls['confirmPassword'].invalid && form2.controls['confirmPassword'].touched" class="text-danger"> <i [innerHTML]="icons.infoIcon | safeHtml"></i> يرجى إدخال بريد الكتروني صحيح </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-10 text-end mt-3">
+                            <button data-bs-toggle="modal" data-bs-target="#passwordModal" type="submit" class="rounded-3 theme-bg border-0 text-white lg-button font16 wt-500 px-4">تغيير كلمة المرور</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="passwordModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content rounded-3 border-0">
+            <div class="modal-body text-center p-md-5">
+                <i [innerHTML]="icons.passwordSuccess | safeHtml"></i>
+                <h2 class="font25 wt-800 mt-4">تم تغيير كلمة المرور بنجاح </h2>
+                <p class="font16 wt-500 content-light my-4">برجاء تسجيل الدخول مرة اخرى بأستخدام كلمة المرور الجديدة</p>
+                <button class="btn theme-bg text-white lg-button w-100">
+                    تسجيل الدخول
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

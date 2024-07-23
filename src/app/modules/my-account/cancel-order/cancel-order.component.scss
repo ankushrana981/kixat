@@ -1,0 +1,16 @@
+@import "../../../../assets/style/variables";
+.ammountPaid {
+    background: #E7F6FD;
+    color: #0E96D9;
+}
+
+.form-control:focus {
+    border-color: #D19F1F;
+    box-shadow: none;
+}
+
+@media (max-width: 767.98px) {
+    .font18 {
+        font-size: 15px;
+    }
+}

@@ -1,0 +1,271 @@
+<app-upper-header></app-upper-header>
+<header class="py-3 py-md-4">
+    <div class="container">
+        <div class="row align-items-center flex-wrap flex-md-nowrap justify-content-between">
+            <div class="col-md-6 col-lg-7 d-flex flex-wrap flex-md-nowrap align-items-center justify-content-sm-start">
+                <a class="navbar-brand p-0 m-0 d-none d-md-block" [routerLink]="['/']">
+                    <img src="assets/icons/logo.svg" alt="kixat">
+                </a>
+                <div class="mobile-header d-md-none w-100 mb-3">
+                    <div class="row align-items-center">
+                        <div class="col-6">
+                            <button [innerHTML]="icons.toggler | safeHtml" type="button" class="me-3 btn btn-primary p-0 bg-transparent border-0" data-bs-toggle="modal" data-bs-target="#mobileMenu">
+                              </button>
+                            <a class="navbar-brand p-0 m-0" [routerLink]="['/']">
+                                <img src="assets/icons/logo.svg" alt="kixat">
+                            </a>
+                        </div>
+                        <div class="col-6 text-end">
+                            <img src="assets/icons/wishlist.svg" alt="">
+                            <span (click)="getCart()" data-bs-toggle="modal" data-bs-target="#cartsidebar" class="cursor cart-count ms-3 d-inline-block position-relative">
+                                <i class="p-1 theme-bg text-white position-absolute d-inline-flex align-items-center justify-content-center rounded-circle fst-normal">3</i>
+                                <img class="" src="assets/icons/shopping-cart.svg" alt="">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="search-holder ms-md-3 w-100">
+                    <app-search></app-search>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <div class="user-actions mt-3 mt-md-0 d-flex align-items-center justify-content-end">
+                    <div class="d-flex">
+                        <img class="me-2" src="assets/icons/user-avtar.svg" alt="">
+                        <div *ngIf="!user">
+                            <p class="font12 m-0">اهلاً بك!</p>
+                            <h6 [routerLink]="['/login']" class="m-0 wt-800 cursor font13">تسجيل الدخول/ انشاء حساب</h6>
+                        </div>
+                        <div class="dropdown" *ngIf="user">
+                            <p class="font12 m-0">اهلاً بك!</p>
+                            <button class="border-0 wt-700 font14 p-3 dropdown-toggle bg-transparent" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="d-inline-block mx-1 p-0"> {{user}}</span> <i [innerHTML]="icons.downArrowBlack | safeHtml"></i></button>
+                            <ul class="dropdown-menu  border-0" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" [routerLink]="['/my-account/orders']"><i [innerHTML]="icons.packaging | safeHtml"></i> الطلبات</a></li>
+                                <li><a class="dropdown-item" [routerLink]="['/my-account/addresses']"><i [innerHTML]="icons.locationPin | safeHtml"></i> العناويين</a></li>
+                                <li><a class="dropdown-item" [routerLink]="['/my-account']"><i [innerHTML]="icons.user | safeHtml"></i> حسابي</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item theme-color cursor" (click)="logOut()">تسجيل الخروج</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="px-3">
+                        <img src="assets/icons/wishlist.svg" alt="">
+                    </div>
+                    <div (click)="getCart()" class="d-flex" data-bs-toggle="modal" data-bs-target="#cartsidebar">
+                        <img class="cursor me-2" src="assets/icons/shopping-cart.svg" alt="">
+                        <div>
+                            <p class="font12 m-0">عربة التسوق</p>
+                            <h6 class="m-0 wt-800">0 ج.م</h6>
+                        </div>
+                    </div>
+                    <div class="info-msg p-2 px-4 rounded ms-md-3 wt-800">
+                        ابدأ بيع معانا
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="border-top border-bottom py-2 ps-md-0 category-wrapper container-fluid d-none d-md-block">
+    <div class="row category">
+        <div class="col-md-2 px-md-0">
+            <div class="dropdown d-inline-block ms-md-3">
+                <button class="all-category wt-700 font14 p-3 dropdown-toggle theme-bg text-white border-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="d-inline-block mx-2 p-0"> جميع الفئات</span> <i [innerHTML]="icons.downArrow | safeHtml"></i></button>
+                <div class="categoryList rounded-0 dropdown-menu border-0" aria-labelledby="dropdownMenuButton1">
+                    <span class="wt-700 font14 content-main p-3">الفئات</span>
+                    <ul class="list-unstyled">
+                        <li class="has-menu">
+                            <a href="#">الإلكترونيات 
+                                <i [innerHTML]="icons.downArrowBlack | safeHtml"></i></a>
+                            <ul class="list-unstyled position-absolute bg-white">
+                                <li><a href="#">ساعات سمارت</a></li>
+                                <li><a href="#">الهواتف الذكية</a></li>
+                                <li><a href="#">العاب الفيديو</a></li>
+                                <li><a href="#">صوتيات</a></li>
+                                <li><a href="#">اكسسوارات السيارات</a></li>
+                                <li><a href="#">الطابعات</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-menu">
+                            <a href="#">موبايلات و تابلت                            <i [innerHTML]="icons.downArrowBlack | safeHtml"></i></a>
+                            <ul class="list-unstyled position-absolute bg-white">
+                                <li><a href="#">ساعات سمارت</a></li>
+                                <li><a href="#">الهواتف الذكية</a></li>
+                                <li><a href="#">العاب الفيديو</a></li>
+                                <li><a href="#">صوتيات</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-menu">
+                            <a href="#">لابتوب و كمبيوتر                                <i [innerHTML]="icons.downArrowBlack | safeHtml"></i></a>
+                            <ul class="list-unstyled position-absolute bg-white">
+                                <li><a href="#">صوتيات</a></li>
+                                <li><a href="#">اكسسوارات السيارات</a></li>
+                                <li><a href="#">الطابعات</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-menu">
+                            <a href="#">الإلكترونيات 
+                                <i [innerHTML]="icons.downArrowBlack | safeHtml"></i></a>
+                            <ul class="list-unstyled position-absolute bg-white">
+                                <li><a href="#">ساعات سمارت</a></li>
+                                <li><a href="#">الهواتف الذكية</a></li>
+                                <li><a href="#">العاب الفيديو</a></li>
+                                <li><a href="#">صوتيات</a></li>
+                                <li><a href="#">اكسسوارات السيارات</a></li>
+                                <li><a href="#">الطابعات</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-menu">
+                            <a href="#">موبايلات و تابلت                            <i [innerHTML]="icons.downArrowBlack | safeHtml"></i></a>
+                            <ul class="list-unstyled position-absolute bg-white">
+                                <li><a href="#">ساعات سمارت</a></li>
+                                <li><a href="#">الهواتف الذكية</a></li>
+                                <li><a href="#">العاب الفيديو</a></li>
+                                <li><a href="#">صوتيات</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-menu">
+                            <a href="#">لابتوب و كمبيوتر                                <i [innerHTML]="icons.downArrowBlack | safeHtml"></i></a>
+                            <ul class="list-unstyled position-absolute bg-white">
+                                <li><a href="#">صوتيات</a></li>
+                                <li><a href="#">اكسسوارات السيارات</a></li>
+                                <li><a href="#">الطابعات</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dropdown d-inline-block">
+                <button class="brands border-0 border-left wt-700 font14 p-3 dropdown-toggle bg-transparent" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="d-inline-block mx-2 p-0"> البراندات</span> <i [innerHTML]="icons.downArrowBlack | safeHtml"></i></button>
+                <ul class="dropdown-menu border-0" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-10 mt-3 mt-md-0">
+            <div class="pe-md-5 ps-md-2">
+                <app-category-list-carousel [data]="categories" [style]="'plain'"></app-category-list-carousel>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Mobile Sidebar -->
+<div class="modal fade" id="mobileMenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content border-0 rounded-0 h-100">
+            <div class="modal-header p-2">
+                <a class="navbar-brand p-0 m-0" href="/">
+                    <img src="assets/icons/logo.svg" alt="kixat">
+                </a>
+                <button type="button" class="btn-close ms-0" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul class="list-unstyled p-0 m-0">
+                    <li>
+                        <a class="d-block p-2" href="#">الطلبات</a>
+                        <a class="d-block p-2" href="#">العناويين</a>
+                        <a class="d-block p-2" href="#">حسابي</a>
+                    </li>
+                </ul>
+                <hr>
+                <a href="#">تسجيل الدخول /إنشاء حساب</a>
+                <hr>
+                <div class="dropdown ">
+                    <button class="w-100 m-0 d-flex justify-content-between border-0 wt-700 font14 p-0 dropdown-toggle bg-transparent" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="d-inline-block mx-2 p-0"> البراندات</span> <i [innerHTML]="icons.downArrowBlack | safeHtml"></i></button>
+                    <ul class="dropdown-menu border-0" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item p-2" href="#">Action</a></li>
+                        <li><a class="dropdown-item p-2" href="#">Another action</a></li>
+                        <li><a class="dropdown-item p-2" href="#">Something else here</a></li>
+                    </ul>
+                </div>
+                <hr>
+                <p class="mb-2 wt-600 font14 content-light me-1">الفئات</p>
+                <ul class="list-unstyled p-0 m-0">
+                    <li *ngFor="let item of categories">
+                        <a class="d-block p-2" href="#"><i class="ms-1" [innerHTML]="item.icon | safeHtml"></i> {{item.label}} </a>
+                    </li>
+                </ul>
+                <hr>
+                <a class="d-block pe-1" href="#">
+                    <i class="ms-1 black" [innerHTML]="icons.compare | safeHtml"></i> قائمة المقارنة
+                </a>
+                <button class="my-3 btn bg-extralight text-secondary wt-800 font16" type="button"> 
+                    ابدأ بيع معانا
+                </button>
+                <p>
+                    <a href="#" class="theme-color">
+                        تسجيل الخروج
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Cart Sidebar -->
+<div class="modal fade" id="cartsidebar" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content border-0 rounded-0 h-100">
+            <div class="modal-header p-2">
+                <span class="font18 wt-600">تفاصيل العربة</span>
+                <button type="button" class="btn-close ms-0" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ng-container *ngIf="isLoading; else cartData">
+                    <ngx-skeleton-loader animation="progress" count="2"></ngx-skeleton-loader>
+                </ng-container>
+                <ng-template #cartData>
+                    <div class="cart-items px-1">
+                        <div class="row border-bottom pb-3 mb-3" *ngFor="let data of cart?.items">
+                            <div class="col-1 p-0">
+                                <i class="cursor" (click)="removeItem(data.id)" [innerHTML]="icons.delete | safeHtml"></i>
+                            </div>
+                            <div class="col-4 px-1">
+                                <div class="thumb p-2 border rounded-3">
+                                    <img class="img-fluid" src="{{baseUrl+data.productImage}}" alt="{{data.productName}}">
+                                </div>
+                            </div>
+                            <div class="col-7 px-2 font16 wt-500">
+                                <h3 class="title font16 wt-500">{{data.productName}}</h3>
+                                <span class="content-light">36</span>
+                                <p class="theme-color font18 wt-600 m-0">
+                                    {{data.productPriceString}}<span class="p-1 rounded font14 wt-700 bg-primaryLight">خصم 10%</span>
+                                    <del class="d-block content-light font14 wt-500">15,700 ج.م</del>
+                                </p>
+                                <form class="action-form d-flex align-item-center justify-content-between mt-2">
+                                    <button (click)="increaseQuantity(data)" class="border-0 bg-white p-0" type="button">
+                                        <i class="me-1" [innerHTML]="icons.plusRed | safeHtml"></i>
+                                    </button>
+                                    <input class="wt-700 font14 border-0 text-center quantity" [value]="data.quantity">
+                                    <button (click)="decreaseQuantity(data)" class="border-0 bg-white  p-0" type="button">
+                                        <i class="me-1" [innerHTML]="icons.minus | safeHtml"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                <div *ngIf="cart?.items.length==0 && !isLoading" class="p-3 success bg-success-light rounded-3 mt-5 font18 wt-600 mx-auto">
+                    <i [innerHTML]="icons.tick | safeHtml"></i> Your cart is empty
+                </div>
+            </div>
+            <div class="modal-footer d-block">
+                <h3 class="font18 wt-600 d-flex"> الإجمالي <span class="font20 ms-auto">{{cart?.orderTotalString}}</span></h3>
+                <button class="my-2 mt-3 btn lg-button theme-bg text-white w-100">
+                    عرض العربة
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<section class="pb-2">
+    <div class="container text-center">
+        <div class="d-flex justify-content-between mb-2 align-items-center mb-md-0">
+            <span class="font25 wt-800">
+                تصفح البراندات
+            </span>
+            <a href="#" class="font20 wt-600 theme-color d-none d-md-inline-block">
+                عرض الكل
+            </a>
+        </div>
+        <div class="row row-cols-3 row-cols-lg-6 g-2 g-lg-3 gy-lg-4 my-lg-3">
+            <div class="col" *ngFor="let brand of brands">
+                <div class="brandBox d-flex align-items-center justify-content-center">
+                    <img [src]="baseUrl+brand.thumbnailImageUrl" class="img-fluid" [alt]="brand.name">
+                </div>
+            </div>
+        </div>
+
+        <a class="viewAll d-md-none theme-bg text-center rounded-3 m-3 text-white wt-700 font16 d-block" href="#">عرض الكل</a>
+    </div>
+</section>

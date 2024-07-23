@@ -1,0 +1,91 @@
+@import "../../../../assets/style/variables";
+ul li a {
+    &:hover {
+        color: $primary;
+    }
+}
+
+.card-header button.bg-white:hover {
+    background: $primary !important;
+    color: #fff;
+}
+
+.row {
+    .col-md-2.bg-extra-light::before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        width: 50vw;
+        background: $bg-extra-light;
+        z-index: -1;
+    }
+}
+
+.order {
+    .allRatings {
+        .nav-pills {
+            .nav-item {
+                margin: 0 12px;
+                @media (max-width: 767.98px) {
+                    margin: 0 2px;
+                }
+            }
+            .nav-link {
+                color: $content-medium;
+                font-weight: $wt600;
+                font-size: 17px;
+                padding: 7px 15px !important;
+                &.active {
+                    background: $secondary;
+                    color: #fff;
+                }
+                @media (max-width: 767.98px) {
+                    font-size: $font14;
+                    padding: 5px 6px !important;
+                }
+            }
+        }
+    }
+    .nav-pills {
+        .nav-item {
+            margin: 0 12px;
+            @media (max-width: 767.98px) {
+                margin: 0 2px;
+            }
+        }
+        .nav-link {
+            color: $content-main;
+            font-weight: $wt600;
+            font-size: 17px;
+            &.active {
+                background: $bg-light;
+                color: $content-main;
+            }
+            @media (max-width: 767.98px) {
+                font-size: $font14;
+                padding: 5px 6px !important;
+            }
+        }
+    }
+    .bg-warn {
+        background: #E1B000;
+    }
+    .productValue {
+        .image {
+            max-height: 226px;
+            max-width: 169px;
+            .card-body {
+                max-height: 145px;
+                max-width: 145px;
+            }
+        }
+    }
+}
+
+button.bg-white :hover {
+    background: $primary;
+    color: #fff;
+}

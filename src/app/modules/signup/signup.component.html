@@ -1,0 +1,90 @@
+<app-mini-header [isLoged]="false"></app-mini-header>
+<section class="signup-form text-center mx-auto pb-4">
+    <h2 class="text-center font25 wt-800 my-4 pt-md-5">إنشاء حساب جديد</h2>
+    <div class="action-btns">
+        <a href="#" class="font16 wt-600 bg-light p-3 px-4 rounded-3 d-inlin-block me-md-2 me-1">
+            <i class="me-2" [innerHTML]="icons.facebookF | safeHtml"></i> تسجيل عبر جوجل
+        </a>
+        <a href="#" class="font16 wt-600 bg-light p-3 px-4 rounded-3 d-inline-block ms-md-2 ms-1">
+            <i class="me-2" [innerHTML]="icons.google | safeHtml"></i> تسجيل عبر فيسبوك
+        </a>
+    </div>
+    <div *ngIf="errorMessage" class="mt-3 p-3 text-danger red-light rounded-3 font18 wt-600">
+        <i [innerHTML]="icons.infoIcon | safeHtml"></i> {{errorMessage}}
+    </div>
+    <div class="or_text position-relative font16 wt-500 my-4">
+        <span class="bg-white p-1"> أو </span>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="px-3 px-md-0">
+        <app-loader *ngIf="isLoading"></app-loader>
+        <div class="form-group">
+            <div class="control-wrapper position-relative">
+                <span class="icon position-absolute" [innerHTML]="icons.email | safeHtml">                            
+                </span>
+                <input formControlName="email" id="email" type="email" class="form-control font16 wt-500">
+                <label for="email" class="position-absolute">البريد الالكتروني</label>
+                <p *ngIf="form.controls['email'].invalid && form.controls['email'].touched" class="text-danger text-start"> <i [innerHTML]="icons.infoIcon | safeHtml"></i> يرجى إدخال بريد الكتروني صحيح </p>
+            </div>
+        </div>
+        <div class="row  my-4">
+            <div class="col-md-3 col-4">
+                <div class="control-wrapper">
+                    <div class="form-group">
+                        <select id="inputState" class="form-select form-control form-txt" placeholder="State">
+                        <option value="State" selected="">+20</option>
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                      </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 col-8">
+                <div class="form-group">
+                    <div class="control-wrapper position-relative">
+                        <span class="icon position-absolute" [innerHTML]="icons.phone | safeHtml">                       
+                </span>
+                        <input formControlName="phone" id="number" type="text" class="form-control font16 wt-500">
+                        <label for="number" class="position-absolute">رقم الهاتف</label>
+                        <p *ngIf="form.controls['phone'].invalid && form.controls['phone'].touched" class="text-danger text-start"> <i [innerHTML]="icons.infoIcon | safeHtml"></i> يرجى إدخال بريد الكتروني صحيح </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-wrapper position-relative">
+                <span class="icon position-absolute" [innerHTML]="icons.key | safeHtml">                                                                      
+                </span>
+                <input formControlName="password" id="password" [type]="show ? 'text' : 'password'" class="password form-control font16 wt-500">
+                <label for="password" class="position-absolute">كلمة المرور</label>
+                <i [ngClass]="{'show': show}" (click)="togglePassword()" class="cursor position-absolute password-icon" [innerHTML]="icons.eye | safeHtml">
+                </i>
+                <p *ngIf="form.controls['password'].invalid && form.controls['password'].touched" class="text-danger text-start"> <i [innerHTML]="icons.infoIcon | safeHtml"></i> يرجى إدخال بريد الكتروني صحيح </p>
+            </div>
+        </div>
+        <div class="form-group my-4">
+            <div class="control-wrapper position-relative">
+                <span class="icon position-absolute" [innerHTML]="icons.userLight | safeHtml">      
+                </span>
+                <input formControlName="firstName" id="firstName" type="text" class="form-control font16 wt-500">
+                <label for="firstName" class="position-absolute">الاسم الأول</label>
+                <p *ngIf="form.controls['firstName'].invalid && form.controls['firstName'].touched" class="text-danger text-start"> <i [innerHTML]="icons.infoIcon | safeHtml"></i> يرجى إدخال بريد الكتروني صحيح </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-wrapper position-relative">
+                <span class="icon position-absolute" [innerHTML]="icons.userLight | safeHtml">                               
+                </span>
+                <input formControlName="lastName" id="lastName" type="text" class="form-control font16 wt-500">
+                <label for="lastName" class="position-absolute">الاسم الأول</label>
+                <p *ngIf="form.controls['lastName'].invalid && form.controls['lastName'].touched" class="text-danger text-start"> <i [innerHTML]="icons.infoIcon | safeHtml"></i> يرجى إدخال بريد الكتروني صحيح </p>
+            </div>
+        </div>
+        <button type="submit" class="rounded-3 btn  theme-bg w-100 border-0 text-white lg-button my-4 font18 wt-600" [disabled]="(!form.valid)">
+            استمرار
+        </button>
+        <button class="btn rounded-3 outfill w-100 lg-button bg-transparent font18 wt-600 theme-color">
+            تسجيل الدخول
+        </button>
+    </form>
+</section>

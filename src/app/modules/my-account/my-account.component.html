@@ -1,0 +1,27 @@
+<app-mini-header [isLoged]="true"></app-mini-header>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 bg-extra-light position-relative d-none d-md-block">
+                <ul class="list-unstyled m-0 p-0 border-bottom py-3 mb-3 mt-5">
+                    <li routerLinkActive="bg-light p-0">
+                        <a [routerLink]="['orders']" class="font18 wt-600 content-light d-block p-3 py-2"><i class="me-2" [innerHTML]="icons.orderBox | safeHtml"></i> الطلبات</a>
+                    </li>
+                    <li routerLinkActive="bg-light p-0">
+                        <a [routerLink]="['addresses']" class="font18 wt-600 content-light d-block p-3 py-2"><i class="me-2" [innerHTML]="icons.addresses | safeHtml"></i> العناويين</a>
+                    </li>
+                    <li [routerLinkActiveOptions]="{exact:true}" routerLinkActive="bg-light p-0" ex>
+                        <a [routerLink]="['/my-account']" class="font18 wt-600 content-light d-block p-3 py-2"><i class="me-2" [innerHTML]="icons.myAccount | safeHtml"></i> حسابي</a>
+                    </li>
+                </ul>
+                <span class="font18 wt-500 theme-color cursor p-2 d-block">
+                    تسجيل الخروج
+                </span>
+            </div>
+            <div class="col-md-10 ps-md-4 pt-4">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</section>

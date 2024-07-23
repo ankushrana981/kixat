@@ -1,0 +1,106 @@
+<section class="py-md-4">
+    <div class="container">
+        <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='12'%3E%3Cpath d='M6.01283 0.191854L0.667879 5.5369C0.544367 5.66042 0.476562 5.8251 0.476562 6.00451C0.476562 6.18032 0.544367 6.3451 0.667879 6.46841L6.00776 11.8085C6.13137 11.932 6.29615 12 6.47195 12C6.64776 12 6.81263 11.9321 6.93615 11.8085L7.32941 11.4152C7.45292 11.2917 7.52112 11.1268 7.52112 10.951C7.52112 10.7752 7.45292 10.6104 7.32941 10.4868L2.84524 6.00266L7.33458 1.51351C7.458 1.39 7.52609 1.22522 7.52609 1.04931C7.52609 0.873509 7.458 0.708828 7.33458 0.585218L6.94112 0.191854C6.68522 -0.0639495 6.26873 -0.0639495 6.01283 0.191854Z' fill='currentColor'/%3E%3C/svg%3E&#34;);">
+            <ol class="breadcrumb wt-500 font16 my-3 mb-4">
+                <li class="breadcrumb-item "><a href="#" class="content-main">الرئيسية</a></li>
+                <li class="breadcrumb-item active" aria-current="page">الالكترونيات</li>
+            </ol>
+        </nav>
+        <h2 class="wt-800 font25 mb-4">
+            قائمة المقارنة
+        </h2>
+        <div class="d-none d-md-flex row action-row bg-extra-light m-0 row-cols-5 content-light">
+            <div class="col"> </div>
+            <div class="col text-center" *ngFor="let product of products">
+                <span class="d-block p-3 cursor" (click)="removeItem(product.productId)">
+                    <i [innerHTML]="icons.delete | safeHtml"></i>
+                إزالة المنتج من المقارنة
+                </span>
+            </div>
+        </div>
+
+        <div class="row row-cols-5">
+            <div class="col"> </div>
+            <div class="col mb-3 mb-md-0" *ngFor="let product of products">
+                <div class="product p-3 text-center">
+                    <h2 class="content-main wt-700 font14 mb-3 text-capitalize">{{product.productName}}</h2>
+                    <div class="thumb rounded border ">
+                        <img class="img-fluid" src="{{baseUrl+product.productImage}}" alt="{{product.productName}}">
+                    </div>
+                    <h4 class="wt-700 font20 price my-3 mb-2">
+                        <span class="theme-color">
+                           {{product.priceString}}<del class="title wt-500 font16 content-light">{{product.oldPriceString}}</del>
+                        </span>
+                    </h4>
+                    <button class="my-3 mb-2 btn w-100 theme-color border text-white wt-700 font14 p-2">
+                        <i [innerHTML]="icons.plus | safeHtml" class="me-1"></i>  اضف الى عربة التسوق
+                    </button>
+
+                    <div class="d-md-none">
+                        <span class="d-block p-3">
+                            <i [innerHTML]="icons.delete | safeHtml"></i>
+                        إزالة المنتج من المقارنة
+                        </span>
+
+                        <span class="rate p-2 px-3 d-inline-block rounded font18 wt-600 bg-extralight text-secondary">
+                            <i [innerHTML]="icons.star | safeHtml"></i> 4.7
+                        </span>
+
+                        <div>
+                            <span class="content-light">البراند</span> ابل
+                        </div>
+                        <div class="my-1">
+                            <span class="content-light">الشاشة</span> 6.7 Inch
+                        </div>
+                        <div>
+                            <span class="content-light">نبذة</span> المحتوى المقروء لصفحة ما سيلهي القارئ عن
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evaluation => Ratings -->
+        <div class="d-none d-md-flex row row-cols-5 border-top bordeer-bottom pt-3 pb-3 wt-700 font14">
+            <div class="col">
+                <span class="content-light">التقييم</span>
+            </div>
+            <div class="col text-center" *ngFor="let product of products">
+                <span class="rate p-2 px-3 d-inline-block rounded font18 wt-600 bg-extralight text-secondary">
+                    <i [innerHTML]="icons.star | safeHtml"></i> 4.7
+                </span>
+            </div>
+        </div>
+
+        <!-- Brand -->
+        <div class="d-none d-md-flex row row-cols-5 border-top bordeer-bottom pt-3 pb-3 wt-700 font14">
+            <div class="col">
+                <span class="content-light">البراند</span>
+            </div>
+            <div class="col text-center" *ngFor="let product of products">
+                ابل
+            </div>
+        </div>
+
+        <!-- Screen/Size -->
+        <div class="d-none d-md-flex row row-cols-5 border-top bordeer-bottom pt-3 pb-3 wt-700 font14">
+            <div class="col">
+                <span class="content-light">الشاشة</span>
+            </div>
+            <div class="col text-center" *ngFor="let product of products">
+                6.7 Inch
+            </div>
+        </div>
+
+        <!-- Brief -->
+        <div class="d-none d-md-flex row row-cols-5 border-top bordeer-bottom pt-3 pb-3 wt-700 font14">
+            <div class="col">
+                <span class="content-light">نبذة</span>
+            </div>
+            <div class="col text-center" *ngFor="let product of products">
+                هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص
+            </div>
+        </div>
+
+    </div>
+</section>

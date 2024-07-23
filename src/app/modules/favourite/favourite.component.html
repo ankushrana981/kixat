@@ -1,0 +1,12 @@
+<section class="py-3 py-md-5">
+    <div class="container">
+        <h2 class="wt-800 font25 mb-4">
+            المفضلة ({{products?.length}})
+        </h2>
+        <div class="row m-md-0 px-md-0 px-2">
+            <div class="col-6 col-md-2 p-0" *ngFor="let item of products">
+                <app-product (modalData)="getModalData($event)" [view]="" [data]="item"></app-product>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,15 @@
+<form action="#">
+    <div class="form-group d-flex dropdown search">
+        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="searchText" data-bs-toggle="dropdown" aria-expanded="false" class="form-control d-inline-block border-0" type="text" placeholder="ابحث عن اللي محتاجه من منتجات أو براندات هنا">
+        <i *ngIf="searchText" (click)="clear()" class="clear-btn position-absolute d-flex align-items-center p-3 cursor" [innerHTML]="icons.close | safeHtml"></i>
+        <button type="submit" class="theme-bg text-white border-0 p-2">
+            <i class="mx-1 my-1 d-inline-block" [innerHTML]="icons.search | safeHtml"></i>
+        </button>
+
+        <ul class="dropdown-menu border-0 w-100 dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+            <li class="cursor" *ngFor="let cat of category | filter:searchText" (click)="searchText = cat">
+                <a class="dropdown-item">{{cat}}</a>
+            </li>
+        </ul>
+    </div>
+</form>

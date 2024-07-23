@@ -1,0 +1,30 @@
+@import "../../../assets/style/variables";
+.sub-cat {
+    .thumb {
+        height: 140px;
+        img {
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+    &:hover h3 {
+        color: $primary;
+    }
+}
+
+.brandBox {
+    height: 120px;
+    border: 2px solid $secondary;
+    border-radius: 8px;
+    cursor: pointer;
+    &:hover {
+        background: $bg-light;
+    }
+    @media (max-width: 767.98px) {
+        height: 80px;
+        padding: 8px;
+        img {
+            height: 100%;
+        }
+    }
+}

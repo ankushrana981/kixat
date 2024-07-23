@@ -1,0 +1,51 @@
+@import "../../../assets/style/variables";
+.footer {
+    .store-img {
+        @media (min-width: 768px) and (max-width: 1023px) {
+            height: 50px;
+        }
+    }
+    .position-fixed {
+        right: 12px;
+        bottom: 12px;
+        width: 50px;
+        height: 50px;
+        background: $primary;
+        cursor: pointer;
+        z-index: 9;
+        &:last-child {
+            background: $content-main;
+            right: auto;
+            left: 12px;
+        }
+    }
+    .socialMedia {
+        height: 40px;
+        width: 40px;
+        border: 1px solid $content-main;
+        cursor: pointer;
+        @media (max-width: 767.98px) {
+            height: 29px;
+            width: 29px;
+        }
+    }
+    a {
+        color: $content-medium;
+        &:hover {
+            color: $primary;
+        }
+    }
+    .bg-medium {
+        background: $bg-medium;
+    }
+    @media (max-width: 767.98px) {
+        img {
+            max-width: 100px;
+            margin: 4px;
+        }
+        .payment-imgs img {
+            max-width: 60px;
+            margin: 4px 0;
+        }
+    }
+}

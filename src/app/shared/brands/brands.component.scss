@@ -1,0 +1,24 @@
+@import "../../../assets/style/variables";
+.brandBox {
+    height: 120px;
+    border: 2px solid $secondary;
+    border-radius: 8px;
+    cursor: pointer;
+    &:hover {
+        background: $bg-light;
+    }
+    img {
+        height: 100%;
+    }
+    @media (max-width: 767.98px) {
+        height: 80px;
+        padding: 8px;
+        img {
+            height: 100%;
+        }
+    }
+}
+
+.viewAll {
+    padding: 12px 15px
+}

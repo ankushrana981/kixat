@@ -1,0 +1,22 @@
+@import "../../../assets/style/variables";
+img {
+    max-height: 170px;
+}
+
+ul.divide-2 {
+    display: flex;
+    flex-wrap: wrap;
+    li {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+li a {
+    font-weight: $wt500;
+    font-size: $font14;
+    color: $content-medium;
+    &:hover {
+        color: $primary;
+    }
+}

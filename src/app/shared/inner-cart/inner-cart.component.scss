@@ -1,0 +1,48 @@
+@import "../../../assets/style/variables";
+.cart {
+    input {
+        outline: none;
+        box-shadow: none;
+    }
+    .card {
+        border-color: $bg-medium !important;
+    }
+    .bg-extralight {
+        background: $bg-extra-light;
+    }
+    a {
+        &:hover {
+            color: $primary;
+        }
+    }
+    .quantity {
+        width: 50px;
+        outline: none;
+    }
+    .activation {
+        .button {
+            padding: 16px 26px;
+            &:hover {
+                color: #fff;
+                background: $primary;
+            }
+        }
+    }
+    .img-thumbnail {
+        height: 112px;
+        width: 112px;
+    }
+    .row.bg-light {
+        color: $content-light;
+        @media (max-width: 767.98px) {
+            justify-content: center;
+            &>div {
+                width: auto;
+                border: none !important;
+            }
+            .action-btn {
+                font-size: 12px;
+            }
+        }
+    }
+}

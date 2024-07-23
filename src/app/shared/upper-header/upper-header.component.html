@@ -1,0 +1,30 @@
+<section class="p-md-2 py-1 theme-bg text-white wt-700 upper-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <div class="dropdown">
+                    <button class="p-0 btn btn-secondary dropdown-toggle bg-transparent border-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <!-- <img src="assets/icons/egypt-country.svg" alt="">  -->
+                    <span class="d-inline-block mx-1 p-0 border-0"> {{shipping ? shipping : 'Select Shipping'}}</span> 
+                    <i [innerHTML]="icons.downArrow | safeHtml"></i></button>
+                    <ul class="dropdown-menu wt-400  border-0" aria-labelledby="dropdownMenuButton1">
+                        <li class="p-2 cursor" (click)="setShipping(item)" *ngFor="let item of countries">{{item.name}}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-8 text-end">
+                <span class="d-md-inline-block d-none">
+                    <i class="ms-1" [innerHTML]="icons.compare | safeHtml"></i>    قائمة المقارنة 
+                </span>
+                <div class="dropdown d-inline-block">
+                    <span class="border-0" data-bs-toggle="dropdown">{{activeLanguage}}</span>
+                    <ul class="dropdown-menu wt-400">
+                        <li class="p-2 cursor" (click)="switchLang(lang)" *ngFor="let lang of cultures">
+                            {{lang.name}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

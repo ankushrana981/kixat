@@ -1,0 +1,78 @@
+<app-upper-header></app-upper-header>
+<header class="border-bottom py-2">
+    <div class="container-fluid my-md-1">
+        <div class="row align-items-center">
+            <div class="col-3 pe-0 pe-md-3">
+
+                <button [innerHTML]="icons.toggler | safeHtml" type="button" class="me-3 btn btn-primary p-0 bg-transparent border-0 d-md-none" data-bs-toggle="modal" data-bs-target="#mobileMenu">
+                </button>
+
+                <a routerLink="/">
+                    <img src="assets/icons/favicon.svg" alt="">
+                </a>
+            </div>
+            <div class="col-9 font18 wt-500 text-end">
+                <ng-container *ngIf="isLoged; else notLoged">
+                    <a routerLink="/sub-category" class="theme-color"> <i [innerHTML]="icons.nextArrow | safeHtml"></i> العودة إلى التسوق </a>
+                </ng-container>
+                <ng-template #notLoged>
+                    لديك حساب بالفعل؟ <a routerLink="/signup" class="theme-color wt-600">تسجيل الدخول</a>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Sidebar -->
+<div class="modal fade" id="mobileMenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content border-0 rounded-0 h-100">
+            <div class="modal-header p-2">
+                <a class="navbar-brand p-0 m-0" href="/">
+                    <img src="assets/icons/logo.svg" alt="kixat">
+                </a>
+                <button type="button" class="btn-close ms-0" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul class="list-unstyled p-0 m-0">
+                    <li>
+                        <a class="d-block p-2" href="#">الطلبات</a>
+                        <a class="d-block p-2" href="#">العناويين</a>
+                        <a class="d-block p-2" href="#">حسابي</a>
+                    </li>
+                </ul>
+                <hr>
+                <a href="#">تسجيل الدخول /إنشاء حساب</a>
+                <hr>
+                <div class="dropdown ">
+                    <button class="w-100 m-0 d-flex justify-content-between border-0 wt-700 font14 p-0 dropdown-toggle bg-transparent" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="d-inline-block mx-2 p-0"> البراندات</span> <i [innerHTML]="icons.downArrowBlack | safeHtml"></i></button>
+                    <ul class="dropdown-menu border-0" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item p-2" href="#">Action</a></li>
+                        <li><a class="dropdown-item p-2" href="#">Another action</a></li>
+                        <li><a class="dropdown-item p-2" href="#">Something else here</a></li>
+                    </ul>
+                </div>
+                <hr>
+                <p class="mb-2 wt-600 font14 content-light me-1">الفئات</p>
+                <ul class="list-unstyled p-0 m-0">
+                    <li *ngFor="let item of categories">
+                        <a class="d-block p-2" href="#"><i class="ms-1" [innerHTML]="item.icon | safeHtml"></i> {{item.label}} </a>
+                    </li>
+                </ul>
+                <hr>
+                <a class="d-block pe-1" href="#">
+                    <i class="ms-1 black" [innerHTML]="icons.compare | safeHtml"></i> قائمة المقارنة
+                </a>
+                <button class="my-3 btn bg-extralight text-secondary wt-800 font16" type="button"> 
+                    ابدأ بيع معانا
+                </button>
+                <p>
+                    <a href="#" class="theme-color">
+                        تسجيل الخروج
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

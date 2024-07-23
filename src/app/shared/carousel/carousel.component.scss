@@ -1,0 +1,13 @@
+@import "../../../assets/style/variables";
+.carousel-wrapper {
+    border: 1px solid $bg-medium;
+    border-radius: 10px;
+    overflow: hidden;
+    .banner-image {
+        max-height: 300px;
+        @media (max-width: 767.98px) {
+            margin: auto;
+            display: block;
+        }
+    }
+}

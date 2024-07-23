@@ -1,0 +1,30 @@
+@import "../../../assets/style/variables";
+.shein-banner {
+    background: #170605;
+    border-radius: 12px;
+    @media (max-width: 767.98px) {
+        overflow: hidden;
+        p.font20 {
+            font-size: $font12;
+            margin: 0 !important;
+        }
+        h2 {
+            font-size: $font14;
+        }
+    }
+    .theme-color {
+        box-shadow: 3px 3px 1px 0px $primary;
+        span {
+            color: $content-main;
+        }
+    }
+    img {
+        margin-top: -70px;
+        @media (max-width: 767.98px) {
+            margin-top: -108px;
+            max-width: inherit;
+            height: 225px;
+            margin-bottom: -16px;
+        }
+    }
+}

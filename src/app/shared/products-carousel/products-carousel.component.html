@@ -1,0 +1,20 @@
+<ng-container *ngIf="products.length>0">
+    <ng-container *ngIf="products.length<4; else slider">
+        <div class="row">
+            <div class="col-md-3" *ngFor="let product of products">
+                <app-product (modalData)="getModalData($event)" [view]="" [data]="product"></app-product>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #slider>
+        <owl-carousel-o [options]="customOptions">
+            <ng-template carouselSlide *ngFor="let product of products">
+                <app-product (modalData)="getModalData($event)" [view]="" [data]="product"></app-product>
+            </ng-template>
+        </owl-carousel-o>
+    </ng-template>
+</ng-container>
+
+<ng-container *ngIf="products.length==0">
+    <h2 class="wt-700 font18 text-center">No records found</h2>
+</ng-container>

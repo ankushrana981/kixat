@@ -1,0 +1,52 @@
+<app-mini-header [isLoged]="false"></app-mini-header>
+<section class="signup-form text-center mx-auto py-5">
+    <div class="container">
+        <div *ngIf="loginError" class="p-3 text-danger red-light rounded-3 font18 wt-600">
+            <i [innerHTML]="icons.infoIcon | safeHtml"></i> {{loginError}}
+        </div>
+        <h2 class="text-center font25 wt-800 my-4">تسجيل الدخول إلى حسابك</h2>
+        <div class="action-btns">
+            <a class="cursor font16 wt-600 bg-light p-3 px-4 rounded-3 d-inline-block me-md-2 me-1">
+                <i class="me-2" [innerHTML]="icons.facebookF | safeHtml"></i> تسجيل عبر جوجل
+            </a>
+            <a class="cursor font16 wt-600 bg-light p-3 px-4 rounded-3 d-inline-block ms-md-2 ms-1">
+                <i class="me-2" [innerHTML]="icons.google | safeHtml"></i> تسجيل عبر فيسبوك
+            </a>
+        </div>
+        <div class="or_text position-relative font16 wt-500 my-4">
+            <span class="bg-white p-1"> أو </span>
+        </div>
+        <form [formGroup]="form" class="text-end">
+            <app-loader *ngIf="isLoading"></app-loader>
+            <div class="form-group">
+                <div class="control-wrapper position-relative">
+                    <span class="icon position-absolute" [innerHTML]="icons.email | safeHtml"> 
+                    </span>
+                    <input formControlName="email" id="email" type="email" class="form-control font16 wt-500">
+                    <label for="email" class="position-absolute">البريد الالكتروني</label>
+
+                </div>
+            </div>
+            <div class="form-group my-4">
+                <div class="control-wrapper position-relative mb-3">
+                    <span class="icon position-absolute" [innerHTML]="icons.key | safeHtml">                                                                          
+                    </span>
+                    <input [type]="show ? 'text' : 'password'" formControlName="password" id="password" type="password" class="password form-control font16 wt-500">
+                    <label for="password" class="position-absolute">كلمة المرور</label>
+                    <i [ngClass]="{'show': show}" (click)="togglePassword()" class="cursor position-absolute password-icon" [innerHTML]="icons.eye | safeHtml">
+                    </i>
+
+                </div>
+                <p class="text-start">
+                    <a [routerLink]="['/forgot-password']" class="theme-color wt-500 font16 text-start">نسيت كلمة السر؟</a>
+                </p>
+                <button (click)="submit()" [disabled]="form.invalid || isLoading" type="submit" class="rounded-3 theme-bg w-100 border-0 text-white lg-button my-4 font18 wt-600">
+                    تسجيل الدخول
+                </button>
+                <button type="button" [routerLink]="['/signup']" class="rounded-3 outfill w-100 lg-button bg-transparent font18 wt-600 theme-color">
+                    إنشاء حساب
+                </button>
+            </div>
+        </form>
+    </div>
+</section>

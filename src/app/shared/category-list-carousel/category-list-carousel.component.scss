@@ -1,0 +1,99 @@
+        @import "../../../assets/style/variables";
+         ::ng-deep .owl-theme .owl-nav {
+            position: absolute;
+            display: block;
+            right: -4px;
+            top: -47px;
+            width: auto;
+            margin: 0;
+            &.disabled {
+                transition: all ease-in-out 0.4s;
+                opacity: 0;
+                display: flex !important;
+                position: absolute;
+                left: -48px;
+                right: -48px;
+                align-items: center;
+                justify-content: space-between;
+                top: 50%;
+                transform: translate(0px, -50%);
+                z-index: -1;
+            }
+            [class*=owl-],
+            [class*=owl-]:hover {
+                background: $primary url('../../../assets/icons/arrow.svg') no-repeat center center;
+                background-size: 12px;
+                height: 28px;
+                width: 28px;
+                font-size: 0px;
+                @media (max-width: 767.98px) {
+                    margin: 0;
+                }
+                &.owl-prev {
+                    transform: rotate(180deg);
+                }
+            }
+            @media (max-width: 767.98px) {
+                &.disabled {
+                    margin-top: 25px;
+                    position: static;
+                    opacity: 1;
+                    justify-content: center;
+                    display: none !important;
+                }
+            }
+        }
+        
+         ::ng-deep .owl-theme:hover .owl-nav {
+            &.disabled {
+                left: -33px;
+                right: -33px;
+                opacity: 1;
+            }
+        }
+        
+        .cat-item {
+            cursor: pointer;
+            &:hover {
+                color: $primary;
+            }
+            &>img {
+                flex: 0 0 33px;
+                max-width: 33px;
+                display: inline-block;
+                max-height: 28px;
+                margin-left: 4px;
+            }
+            .title {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+        
+        .thumb {
+            max-height: 120px;
+            @media (max-width: 767.98px) {
+                min-height: 120px;
+            }
+        }
+        
+        .menu {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 220px;
+            background: #FFFFFF;
+            z-index: -9;
+            display: block;
+            opacity: 0;
+            visibility: hidden;
+            transition: all ease-in-out 0.4s;
+        }
+        
+        .mega-wrapper:hover .menu {
+            top: 192px;
+            opacity: 1;
+            visibility: visible;
+            z-index: 9;
+        }

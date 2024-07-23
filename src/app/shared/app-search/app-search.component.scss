@@ -1,0 +1,20 @@
+@import "../../../assets/style/variables";
+form {
+    .form-control {
+        background: $bg-light;
+        font-size: $font16;
+        color: $content-medium;
+        width: 100%;
+        border-radius: 0px 7px 7px 0px;
+        flex: 0 0 calc(100% - 49px);
+    }
+    button {
+        border-radius: 7px 0px 0px 7px;
+    }
+    .clear-btn {
+        left: 50px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    }
+}

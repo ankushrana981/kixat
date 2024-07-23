@@ -1,0 +1,4 @@
+<div class="product-thumb">
+    <img style="max-width: 80px;" *ngIf="isLoading" src="assets/icons/favicon.svg">
+    <img class="img-fluid" [alt]="alt" [src]=image [ngStyle]="{visibility:isLoading?'hidden':''}" (load)="hideLoader()" (error)="hideLoader()" />
+</div>

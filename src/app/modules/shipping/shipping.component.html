@@ -1,0 +1,243 @@
+<app-mini-header [isLoged]="true"></app-mini-header>
+<section class="pb-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2 class="font20 wt-600 mt-4 pt-2">تفاصيل التوصيل و الدفع</h2>
+                <div class="card mt-4">
+                    <div class="card-header bg-light font18 wt-600 border-0 p-2">
+                        <div class="my-1 px-2">
+                            <i class="me-2" [innerHTML]="icons.truck | safeHtml"></i> عنوان الشحن
+                        </div>
+                    </div>
+                    <div class="card-body p-2 ps-md-5">
+                        <div class="address ps-md-2">
+                            <label for="address1" class="mb-3 d-block">
+                <input type="radio" name="address" id="address1">
+                <div class="p-3 bg-extra-light rounded-3 font14 wt-400 addressItem">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <h6 class="wt-700 mb-1">Sara Youssry</h6>
+                      <P class="mb-2">+20100 000 0000</P>
+                      <p class="m-0">
+                        <span>الاسكندرية - سيدي جابر - شارع ١ - منطقة</span>
+                        <span class="wt-700 text-secondary d-inline-block mx-4">تعديل العنوان</span>
+                         </p>
+                    </div>
+                    <div class="col-md-4 text-md-end mt-3 mt-md-0 ps-md-0">
+                      <span class="text-white btn btn-default font14 wt-500 me-3">المنزل</span>
+                      <span class="btn px-3 bg-secondary text-white rounded-3">العنوان الافتراضي</span>
+                    </div>
+                  </div>
+                </div>
+              </label>
+                            <label for="address2" class="mb-3 d-block">
+                <input type="radio" name="address" id="address2">
+                <div class="p-3 bg-extra-light rounded-3 font14 wt-400 addressItem">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <h6 class="wt-700 mb-1">Sara Youssry</h6>
+                      <P class="mb-2">+20100 000 0000</P>
+                      <p class="m-0">
+                        <span>الاسكندرية - سيدي جابر - شارع ١ - منطقة</span>
+                        <span class="wt-700 text-secondary d-inline-block mx-4">تعديل العنوان</span>
+                        </p>
+                    </div>
+                    <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                      <span class="text-white btn btn-default font14 wt-500">مكان العمل</span>
+                    </div>
+                  </div>
+                </div>
+              </label>
+                        </div>
+                        <button data-bs-toggle="modal" data-bs-target="#addressModal" class="btn bg-transparent text-secondary font14 wt-700 mt-2">
+              <i class="me-2" [innerHTML]="icons.plusYellow | safeHtml"></i> اضف عنوان جديد
+            </button>
+                        <div class="text-md-end">
+                            <button class="btn font16 wt-500 mt-2 theme-bg text-white">
+                تأكيد العنوان
+              </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-4">
+                    <div class="card-header bg-light font18 wt-600 border-0 p-2">
+                        <div class="my-1 px-2">
+                            <i class="me-2" [innerHTML]="icons.payment | safeHtml"></i> طريقة الدفع
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-extra-light p-3 p-md-4 h-100">
+                    <h3 class="font20 wt-600">منتجاتك في هذا الطلب (3)</h3>
+                    <div class="orders bg-white p-2 my-4">
+                        <div class="row mb-3 mx-md-0">
+                            <div class="col-md-3">
+                                <div class="thumb border rounded-3 p-2  text-center"><img src="assets/images/product2.png" alt=""></div>
+                            </div>
+                            <div class="col-md-7 font16 wt-500">
+                                <h3 class="font16 wt-500 title mt-3 mt-md-0">Maybelline superstay lipstick lipstick</h3>
+                                <p class="content-light m-0">120</p>
+                                <span class="priceinfo font18 wt-600 d-flex align-items-center justify-content-between d-md-inline-block">
+                                    <span class="price">
+                                        <span class="theme-color">
+                                            245 ج.م <del class="d-block font14 wt-500 content-light">15,700 ج.م</del>
+                                        </span>
+                                </span>
+                                <span class="offer theme-color p-2 rounded-3 font14 wt-700 align-top ms-2 bg-primaryLight">
+                                    خصم 10%
+                                </span>
+                                <span class="font14 wt-700 d-md-none content-main">x1</span>
+                                </span>
+                            </div>
+                            <div class="col-md-2 text-end d-none d-md-block">
+                                <span class="font14 wt-700">x1</span>
+                            </div>
+                            <div class="col-md-9 ms-auto">
+                                <p class="font14 wt-700 my-2 theme-color bg-light p-2 rounded">
+                                    <span class="content-medium">الطلب يصلك بين:</span> الاثنين 28 نوفمبر - الاربعاء 30 نوفمبر
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row mb-3 mx-md-0">
+                            <div class="col-md-3">
+                                <div class="thumb border rounded-3 p-2 text-center"><img src="assets/images/product2.png" alt=""></div>
+                            </div>
+                            <div class="col-md-7 font16 wt-500">
+                                <h3 class="font16 wt-500 title mt-3 mt-md-0">Maybelline superstay lipstick lipstick</h3>
+                                <p class="content-light m-0">120</p>
+                                <span class="priceinfo font18 wt-600 d-flex align-items-center justify-content-between d-md-inline-block">
+                                <span class="price">245 ج.م</span>
+                                <span class="font14 wt-700 content-main d-md-none">x1</span>
+                                </span>
+                            </div>
+                            <div class="col-md-2 text-end  d-none d-md-block">
+                                <span class="font14 wt-700">x1</span>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="font18 wt-500 d-flex">
+                        المجموع الفرعي <span class="font20 wt-600 ms-auto">1500 ج.م</span>
+                    </h2>
+                    <h2 class="font18 wt-500 d-flex">
+                        مصاريف الشحن <span class="font20 wt-600 ms-auto">25 ج.م</span>
+                    </h2>
+                    <hr>
+                    <h2 class="font20 wt-600 d-flex">
+                        الإجمالي <span class="font25 wt-800 ms-auto">1525 ج.م</span>
+                    </h2>
+                    <button type="button" class="btn theme-bg text-white w-100 mt-4 lg-button">
+          تأكيد عملية الشراء
+        </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Modal -->
+<div class="modal fade" id="addressModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content rounded-3 border-0">
+            <div class="modal-body p-md-4">
+                <h2 class="font20 wt-600 mb-4">إضافة عنوان جديد</h2>
+
+
+                <form [formGroup]="form" class="">
+                    <div class="form-group mb-4">
+                        <div class="control-wrapper position-relative">
+                            <span class="icon position-absolute" [innerHTML]="icons.userLight | safeHtml">      
+                            </span>
+                            <input formControlName="firstName" id="firstName" type="text" class="form-control font16 wt-500">
+                            <label for="firstName" class="position-absolute">الاسم الأول</label>
+                            <p *ngIf="form.controls['firstName'].invalid && form.controls['firstName'].touched" class="text-danger text-end"> <i [innerHTML]="icons.infoIcon | safeHtml"></i> يرجى إدخال بريد الكتروني صحيح </p>
+                        </div>
+                    </div>
+                    <div class="form-group mb-4">
+                        <div class="control-wrapper position-relative">
+                            <span class="icon position-absolute" [innerHTML]="icons.userLight | safeHtml">                               
+                            </span>
+                            <input formControlName="lastName" id="lastName" type="text" class="form-control font16 wt-500">
+                            <label for="lastName" class="position-absolute">الاسم الأول</label>
+                            <p *ngIf="form.controls['lastName'].invalid && form.controls['lastName'].touched" class="text-danger text-end"> <i [innerHTML]="icons.infoIcon | safeHtml"></i> يرجى إدخال بريد الكتروني صحيح </p>
+                        </div>
+                    </div>
+                    <div class="form-group mb-4">
+                        <div class="control-wrapper position-relative">
+                            <span class="icon position-absolute" [innerHTML]="icons.email | safeHtml">                            
+                            </span>
+                            <input formControlName="email" id="email" type="email" class="form-control font16 wt-500">
+                            <label for="email" class="position-absolute">البريد الالكتروني</label>
+                            <p *ngIf="form.controls['email'].invalid && form.controls['email'].touched" class="text-danger text-end"> <i [innerHTML]="icons.infoIcon | safeHtml"></i> يرجى إدخال بريد الكتروني صحيح </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 col-4">
+                            <div class="control-wrapper">
+                                <div class="form-group mb-4">
+                                    <select id="inputState" class="form-select form-control form-txt" placeholder="State">
+                                    <option value="State" selected="">+20</option>
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                    <option value="">3</option>
+                                  </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9 col-8">
+                            <div class="form-group mb-4">
+                                <div class="control-wrapper position-relative">
+                                    <span class="icon position-absolute" [innerHTML]="icons.phone | safeHtml">                       
+                            </span>
+                                    <input formControlName="phone" id="number" type="text" class="form-control font16 wt-500">
+                                    <label for="number" class="position-absolute">رقم الهاتف</label>
+                                    <p *ngIf="form.controls['phone'].invalid && form.controls['phone'].touched" class="text-danger text-end"> <i [innerHTML]="icons.infoIcon | safeHtml"></i> يرجى إدخال بريد الكتروني صحيح </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <div class="control-wrapper position-relative">
+                            <select id="governorate" formControlName="governorate" id="inputState" class="form-select form-control form-txt">
+                                <option value="">2</option>
+                              </select>
+                            <label for="governorate" class="position-absolute">المحافظة</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <div class="control-wrapper position-relative">
+                            <select id="city" formControlName="city" id="inputState" class="form-select form-control form-txt">
+                                <option value="">2</option>
+                              </select>
+                            <label for="city" class="position-absolute">المدينة</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <div class="control-wrapper position-relative">
+                            <textarea id="address" formControlName="address" class="form-control form-txt"></textarea>
+                            <label for="address" class="position-absolute"> العنوان بالتفصيل (إسم الشارع - المنطقة - رقم العمارة - رقم الشقة)</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <div class="control-wrapper position-relative">
+                            <input formControlName="title" id="title" type="text" class="form-control font16 wt-500">
+                            <label for="title" class="position-absolute">اسم العنوان (اختياري)</label>
+                        </div>
+                    </div>
+
+                    <button class="rounded-3 theme-bg w-100 border-0 text-white lg-button font18 wt-600">
+                        إضافة العنوان
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,733 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "assets/style/variables";
+body {
+    font-family: "Cairo", sans-serif;
+    font-size: $font14;
+    font-weight: $wt500;
+    color: $content-main;
+}
+
+button {
+    outline: none;
+    box-shadow: none !important;
+    &:disabled {
+        opacity: 0.4;
+    }
+}
+
+::-webkit-scrollbar {
+    border-radius: 8px;
+    width: 8px;
+    background: $bg-medium;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    width: 8px;
+    background: $bg-medium;
+    background-color: $primary;
+}
+
+h2,
+.h2 {
+    $font40: 40px;
+}
+
+.theme-color {
+    color: $primary !important;
+}
+
+.theme-bg {
+    background: $primary;
+}
+
+.font12 {
+    font-size: $font12;
+}
+
+.font13 {
+    font-size: 13px;
+}
+
+.font14 {
+    font-size: $font14;
+}
+
+.font16 {
+    font-size: $font16;
+}
+
+.font18 {
+    font-size: $font18;
+}
+
+.font20 {
+    font-size: $font20;
+}
+
+.font25 {
+    font-size: $font25;
+}
+
+.font32 {
+    font-size: $font32;
+}
+
+.wt-400 {
+    font-weight: $wt400;
+}
+
+.wt-500 {
+    font-weight: $wt500;
+}
+
+.wt-600 {
+    font-weight: $wt600;
+}
+
+.wt-700 {
+    font-weight: $wt700;
+}
+
+.wt-800 {
+    font-weight: $wt800;
+}
+
+.wt-900 {
+    font-weight: $wt900;
+}
+
+.content-light {
+    color: $content-light;
+}
+
+.content-medium,
+.nav-pills .nav-link {
+    color: $content-medium;
+}
+
+.red-light {
+    background: $red-light;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.success {
+    color: $success;
+}
+
+.bg-extra-light {
+    background: $bg-extra-light;
+}
+
+.bg-success-light {
+    background: $success-light;
+}
+
+.bg-success {
+    background: $success !important;
+}
+
+.bg-secondary {
+    background: $secondary !important;
+}
+
+.text-secondary {
+    color: $secondary !important;
+}
+
+.bg-secondaryLight {
+    background: $secondary-light;
+}
+
+.bg-primaryLight {
+    background: $primary-light;
+}
+
+.bg-extralight {
+    background: $secondary-extraLight;
+}
+
+.bg-light {
+    background: $bg-light !important;
+}
+
+.content-main {
+    color: $content-main !important;
+}
+
+.bg-dark {
+    background: $content-main !important;
+}
+
+.product {
+    .hover i:not(:last-child):hover {
+        svg path {
+            fill: $primary !important;
+        }
+    }
+    .hover i:last-child:hover {
+        svg path {
+            stroke: $primary !important;
+        }
+    }
+}
+
+.viewAll {
+    padding: 10px 15px;
+    font-size: $font14;
+}
+
+.best-selling .owl-item:not(.active)+.owl-item.active {
+    padding-right: 2px;
+}
+
+.owl-carousel .item {
+    height: 10rem;
+    background: #4dc7a0;
+    padding: 1rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+.dropdown-menu {
+    background: #ffffff;
+    box-shadow: 0px 4px 20px rgb(0 0 0 / 16%);
+    border-radius: 8px;
+    min-width: 200px;
+    .dropdown-item {
+        font-size: $font14;
+        font-weight: $wt500;
+        padding: 8px 15px;
+        i {
+            min-width: 28px;
+            display: inline-block;
+        }
+    }
+}
+
+form {
+    position: relative;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.text-danger {
+    color: $danger;
+}
+
+.owl-carousel .owl-item img {
+    object-fit: contain;
+}
+
+.owl-carousel.owl-rtl .owl-item:hover>.menu {
+    display: block;
+}
+
+.black svg path {
+    fill: #000;
+}
+
+.cart .content-light a svg {
+    max-width: 20px;
+}
+
+.filter-row button svg path {
+    fill: $content-light;
+}
+
+.cart .content-light a:hover svg path,
+.filter-row button.active svg path,
+button.theme-color svg path,
+.cursor:hover svg path {
+    fill: $primary;
+}
+
+input:checked+span i svg path {
+    fill: $secondary;
+}
+
+.cart form button svg {
+    max-width: 38px;
+}
+
+.lg-button {
+    padding: 13px;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    height: 44px;
+    width: 44px;
+    border-radius: 7px;
+    margin: auto 15px;
+}
+
+.carousel-control-prev {
+    transform: rotate(180deg);
+}
+
+.checkoboxes {
+    input:checked+span svg path {
+        fill: white;
+    }
+}
+
+.overview {
+    .fullStar {
+        svg {
+            height: 28px;
+            width: 26px;
+        }
+    }
+}
+
+.sellerProfile {
+    .store {
+        svg {
+            height: 48px;
+            width: 50px;
+        }
+    }
+}
+
+span {
+    display: inline-block;
+}
+
+.theme-border {
+    border-color: $primary !important;
+}
+
+.svg-style svg {
+    width: 26px;
+    height: 26px;
+}
+
+.nav-pills .nav-link.active {
+    color: #fff;
+    background: $secondary;
+}
+
+.form-select {
+    border-color: $bg-medium;
+}
+
+.dropdown-item:active {
+    background: none;
+}
+
+.bg-medium {
+    background: $bg-medium;
+}
+
+.owl-theme .owl-dots {
+    display: flex;
+    margin: 0 !important;
+}
+
+.owl-theme .owl-dots .owl-dot {
+    height: auto;
+    width: auto;
+    flex: auto;
+    text-indent: inherit;
+    border: none;
+    opacity: 1;
+    position: relative;
+    span {
+        display: block;
+        height: auto;
+        width: auto;
+        background: none !important;
+        margin: 0;
+        padding: 15px;
+    }
+    @media (max-width: 767.98px) {
+        text-indent: -999px;
+        height: 4px;
+        width: 30px;
+        margin: 5px !important;
+    }
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0px;
+        left: 0;
+        right: 0;
+        width: 60%;
+        margin: auto;
+        height: 4px;
+        border-radius: 4px;
+        background: $primary;
+        transition: all ease-in-out 0.5s;
+        opacity: 0;
+        @media (max-width: 767.98px) {
+            width: 100%;
+            opacity: 1;
+            background: $bg-medium;
+        }
+    }
+    &.active {
+        color: $primary;
+        &::before {
+            width: 100%;
+            opacity: 1;
+            @media (max-width: 767.98px) {
+                background: $primary;
+            }
+        }
+    }
+    &:not(:first-child) {
+        border-right: 1px solid $bg-medium;
+    }
+    &:hover {
+        color: $primary;
+    }
+}
+
+.carousel-wrapper {
+    .owl-theme .owl-nav {
+        position: absolute;
+        display: block;
+        width: auto;
+        margin: 0;
+        transition: all ease-in-out 0.4s;
+        opacity: 1;
+        display: flex !important;
+        position: absolute;
+        left: 15px;
+        right: 15px;
+        align-items: center;
+        justify-content: space-between;
+        top: 48%;
+        transform: translate(0px, -50%);
+        z-index: 1;
+        [class*=owl-],
+        [class*=owl-]:hover {
+            background: $primary url('assets/icons/arrow.svg') no-repeat center center;
+            background-size: 14px;
+            height: 36px;
+            width: 36px;
+            font-size: 0px;
+            @media (max-width: 767.98px) {
+                margin: 0;
+            }
+            &.owl-prev {
+                transform: rotate(180deg);
+            }
+        }
+        @media (max-width: 767.98px) {
+            &.disabled {
+                margin-top: 25px;
+                position: static;
+                opacity: 1;
+                justify-content: center;
+                display: none !important;
+            }
+        }
+    }
+}
+
+.control-wrapper {
+    label {
+        right: 45px;
+        top: 15px;
+        color: $content-light;
+        background: #fff;
+        padding: 2px 4px;
+        pointer-events: none;
+    }
+    .icon {
+        top: 15px;
+        right: 15px;
+    }
+    .form-control {
+        padding: 13px 45px 13px 13px !important;
+        border-color: $bg-medium;
+        &.no-icon {
+            padding: 13px !important;
+        }
+        &.password {
+            padding-left: 40px !important;
+        }
+        &.form-select {
+            padding: 13px 15px 13px 13px !important;
+        }
+        &:focus {
+            border-color: $secondary;
+            box-shadow: none;
+        }
+        &.no-icon+label {
+            right: 15px;
+        }
+        &.ng-touched+label,
+        &.ng-dirty:not(.ng-pristine)+label {
+            font-size: $font12;
+            transform: translate(30px, -25px);
+        }
+        &.no-icon.ng-dirty:not(.ng-pristine)+label {
+            transform: translate(0px, -25px);
+        }
+        &.ng-invalid.ng-touched {
+            border-color: $danger;
+        }
+    }
+    .password-icon {
+        top: 15px;
+        left: 15px;
+        margin: auto;
+        position: relative;
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0px;
+            top: 10px;
+            height: 3px;
+            width: 24px;
+            background: $content-light;
+            transform: rotate(45deg);
+            transition: all ease-in-out 0.3s;
+            opacity: 1;
+        }
+        &.show::before {
+            opacity: 0;
+        }
+    }
+}
+
+.list-square {
+    li {
+        &::marker {
+            font-size: 12px;
+        }
+        list-style-type: square;
+        line-height: 34px;
+    }
+}
+
+.btn-outline.theme-color {
+    border: 1px solid $primary;
+}
+
+.cart-items {
+    button {
+        svg {
+            height: 32px;
+            width: 32px;
+        }
+    }
+}
+
+.product-slider {
+    position: relative;
+    overflow: hidden;
+    padding-right: 150px !important;
+    .slider-wrapper {
+        min-height: 500px;
+    }
+    .thumbs {
+        height: 300px;
+        width: 300px;
+        .thumb-item {
+            height: 100px;
+            width: 100px;
+            border-radius: 4px;
+            img {
+                object-fit: contain;
+            }
+        }
+    }
+}
+
+.vertical-slider {
+    .owl-item {
+        transform: rotate(-90deg);
+        div {
+            height: 100px;
+            width: 100px;
+            border: 1px solid transparent;
+            margin: 7px;
+            border-radius: 5px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px;
+            margin: auto;
+        }
+        &.active.center>div {
+            border-color: $primary;
+        }
+    }
+    .owl-carousel {
+        transform: rotate(90deg) translate(0px, 100%);
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transform-origin: right bottom;
+    }
+}
+
+@media (min-width: 576px) {
+    .modal-sm {
+        max-width: 530px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1340px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .w-mb-100 {
+        width: 100%;
+    }
+    a.font20 {
+        font-size: $font14;
+    }
+    .font25,
+    .h2,
+    h2 {
+        font-size: 20px;
+    }
+}
+
+body.rtl {
+    [type=email],
+    [type=number],
+    [type=tel],
+    [type=url] {
+        direction: rtl;
+    }
+}
+
+.skeleton-loader {
+    height: 60px !important;
+}
+
+// LTR Style
+body.ltr {
+    .row.category {
+        margin: 0;
+        overflow: hidden;
+        .ms-md-3 {
+            margin-left: 0 !important;
+        }
+    }
+    form.forgotForm {
+        input+span {
+            padding-left: 45px !important;
+            span.pe-5 {
+                padding: 0 !important;
+            }
+        }
+    }
+    .signup-form .action-btns a {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    .control-wrapper {
+        label {
+            right: auto;
+            left: 45px;
+        }
+        .icon {
+            right: auto;
+            left: 15px;
+        }
+        .form-control {
+            padding: 13px 13px 13px 45px !important;
+            &.ng-touched+label,
+            &.ng-dirty:not(.ng-pristine)+label,
+            &.ng-valid+label {
+                transform: translate(-30px, -25px);
+            }
+            &.no-icon.ng-dirty:not(.ng-pristine)+label {
+                transform: translate(0px, -25px);
+            }
+        }
+        .password-icon {
+            right: 15px;
+            left: auto;
+        }
+    }
+    .text-end {
+        text-align: right !important;
+    }
+    .me-2 {
+        margin-left: 0rem !important;
+        margin-right: 0.5rem !important;
+    }
+    app-search {
+        .form-control {
+            border-radius: 0px !important;
+        }
+        button {
+            border-radius: 7px !important;
+        }
+    }
+    .text-start {
+        text-align: left !important;
+    }
+    .ms-2 {
+        margin-left: 0 !important;
+        margin-right: 0.5rem !important;
+    }
+    app-app-header {
+        .category .dropdown-toggle {
+            margin-right: 0;
+            margin-left: 0;
+        }
+    }
+    .shiping-banner {
+        overflow: hidden;
+    }
+    .ms-3 {
+        margin-left: 0rem !important;
+        margin-right: 1rem !important;
+    }
+    .me-3 {
+        margin-right: 0rem !important;
+        margin-left: 1rem !important;
+    }
+    @media (min-width: 768px) {
+        .me-md-2 {
+            margin-left: 0rem!important;
+            margin-right: 0.5rem!important;
+        }
+        .ms-md-2 {
+            margin-right: 0rem!important;
+            margin-left: 0.5rem!important;
+        }
+        .ms-md-3 {
+            margin-right: 0rem !important;
+            margin-left: 1rem !important;
+        }
+        .me-md-3 {
+            margin-right: 0 !important;
+            margin-left: 1rem !important;
+        }
+        .ms-md-4 {
+            margin-left: 0 !important;
+            margin-right: 1.5rem !important;
+        }
+        .ps-md-5 {
+            padding-left: 0rem !important;
+            padding-right: 3rem !important;
+        }
+        .me-md-5 {
+            margin-right: 0rem !important;
+            margin-left: 3rem !important;
+        }
+    }
+}

@@ -1,0 +1,114 @@
+<ng-container *ngIf="isLoading; else info">
+    <div class="p-5">
+        <ngx-skeleton-loader count="2" animation="progress"></ngx-skeleton-loader>
+    </div>
+</ng-container>
+<ng-template #info>
+
+    <section class="py-md-4">
+        <div class="container">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='12'%3E%3Cpath d='M6.01283 0.191854L0.667879 5.5369C0.544367 5.66042 0.476562 5.8251 0.476562 6.00451C0.476562 6.18032 0.544367 6.3451 0.667879 6.46841L6.00776 11.8085C6.13137 11.932 6.29615 12 6.47195 12C6.64776 12 6.81263 11.9321 6.93615 11.8085L7.32941 11.4152C7.45292 11.2917 7.52112 11.1268 7.52112 10.951C7.52112 10.7752 7.45292 10.6104 7.32941 10.4868L2.84524 6.00266L7.33458 1.51351C7.458 1.39 7.52609 1.22522 7.52609 1.04931C7.52609 0.873509 7.458 0.708828 7.33458 0.585218L6.94112 0.191854C6.68522 -0.0639495 6.26873 -0.0639495 6.01283 0.191854Z' fill='currentColor'/%3E%3C/svg%3E&#34;);">
+                <ol class="breadcrumb wt-500 font16 my-3 mb-4">
+                    <li class="breadcrumb-item "><a href="#" class="content-main">الرئيسية</a></li>
+                    <li class="breadcrumb-item "><a href="#" class="content-main">الالكترونيات</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{data?.categoryName}}</li>
+                </ol>
+            </nav>
+    
+            <div class="row mt-4 pt-2">
+                <div class="col-md-2 col-6" *ngFor="let item of subCategory">
+                    <div class="item sub-cat text-center mb-md-5 mb-4 pt-1 pt-md-0 cursor">
+                        <div class="thumb p-2 bg-light rounded mb-3">
+                            <img class="img-fluid" [src]="item.image">
+                        </div>
+                        <h3 class="wt-700 font14">{{item.name}}</h3>
+                    </div>
+                </div>
+            </div>
+    
+    
+            <div class="row">
+                <div class="col-md-2">
+                    <app-filters [data]="data.filterOption"></app-filters>
+                </div>
+                <div class="col-md-10">
+                    <div class="filter-row px-3 p-1 bg-extra-light rounded mb-4 mt-3 mt-md-0">
+                        <div class="row align-items-center">
+                            <div class="col-md-4">
+                                <ul class="nav nav-pills p-0 m-0" id="pills-tab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="bg-transparent nav-link px-2 active" data-bs-toggle="pill" data-bs-target="#box" type="button" role="tab" aria-selected="true" [innerHTML]="icons.filterBox | safeHtml"></button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="bg-transparent nav-link px-2 " data-bs-toggle="pill" data-bs-target="#list" type="button" role="tab" aria-selected="false" [innerHTML]="icons.filterList | safeHtml"></button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-8 text-md-end dropdown">
+                                <span class="wt-500 font14 content-light">الترتيب حسب: </span>
+                                <button class="border-0  wt-700 font14 p-0 dropdown-toggle bg-transparent" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span>{{activeSort}}</span> <i [innerHTML]="icons.downArrowBlack | safeHtml"
+                      class="ms-1"></i></button>
+                                <ul class="dropdown-menu border-0" aria-labelledby="dropdownMenuButton1">
+                                    <li *ngFor="let item of data.availableSortOptions" (click)="applySort(item)">
+                                        <a class="dropdown-item cursor">{{item.text}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="tab-content p-md-0" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="box" role="tabpanel">
+                            <div class="row m-md-0 px-md-0 px-2">
+                                <div class="col-6 col-md-3 p-0" *ngFor="let item of data.products">
+                                    <app-product (openModal)="getModal($event)" [view]="" [data]="item"></app-product>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="list" role="tabpanel">
+                            <div class="mb-3" *ngFor="let item of data.products">
+                                <app-product [view]="'list'" (openModal)="getModal($event)" [data]="item"></app-product>
+                            </div>
+                        </div>
+                    </div>
+    
+    
+                    <nav aria-label="Page navigation example" class="mt-4 mb-4 mb-md-0">
+                        <ul class="pagination justify-content-center pt-md-4 mb-0">
+                            <li class="page-item">
+                                <a class="page-link left-arrow theme-bg px-3 py-2 border-0 rounded-3" aria-label="Previous" [innerHTML]="icons.leftArrow | safeHtml"></a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link px-3 py-2 border-0 wt-600 font18 content-medium">1</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link px-3 py-2 border-0 wt-600 font18 content-medium">2</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link right-arrow theme-bg px-3 py-2  border-0  rounded-3" aria-label="Next" [innerHTML]="icons.leftArrow | safeHtml"></a>
+                            </li>
+                        </ul>
+                    </nav>
+    
+                </div>
+            </div>
+    
+        </div>
+    </section>
+</ng-template>
+
+
+<!-- Quick Modal -->
+<div class="modal fade" id="quickModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl">
+        <div class="modal-content border-0 rounded-3 h-100">
+            <div class="modal-header p-0 border-0 text-start justify-content-end">
+                <button type="button" class="btn-close ms-0 p-4" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body pt-md-0">
+                <app-quick-modal [product]="productId"></app-quick-modal>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+.carousel-wrapper {
+    background: linear-gradient(106.45deg, #A57149 38.6%, #D19F1F 61.21%, #D19F1F 132.96%);
+    &.red {
+        background: linear-gradient(106.45deg, #99162B 38.6%, #AA222C 56.11%, #D03C2D 132.96%);
+    }
+    border-radius: 12px;
+    button {
+        border: 1px solid #fff;
+    }
+    @media (max-width: 767.98px) {
+        .h1 {
+            font-size: 20px;
+        }
+        .font18,
+        button {
+            font-size: 14px;
+        }
+    }
+}

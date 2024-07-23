@@ -1,0 +1,90 @@
+<section *ngIf="!bannerLoaded" class="container p-4" style="min-height: 250px;">
+    <ngx-skeleton-loader animation="progress" count="5"></ngx-skeleton-loader>
+</section>
+<app-carousel *ngIf="bannerLoaded"></app-carousel>
+
+<main #scollWrapper>
+
+    <section class="p-md-3 px-md-5 mt-4 mt-md-0 categories-carousel">
+        <div class="container">
+            <ngx-skeleton-loader *ngIf="!sectionLoaded" animation="progress"></ngx-skeleton-loader>
+            <app-category-list-carousel *ngIf="sectionLoaded" [data]="categories" [style]="'custome'"></app-category-list-carousel>
+        </div>
+    </section>
+
+    <ng-container *ngFor="let section of homeSections; index as index">
+
+        <section class="py-4 adsection" [ngClass]="'adsection-'+index" *ngIf="section.sectionType == 2">
+            <div class="container" *ngIf="index == 3 ? !adsectionLoaded1 : !adsectionLoaded2">
+                <ngx-skeleton-loader animation="progress"></ngx-skeleton-loader>
+            </div>
+            <div class="container" *ngIf="index == 3 ? adsectionLoaded1 : adsectionLoaded2">
+                <ng-container *ngIf="section.name == 'شحن مجاني علي اول طلب'; else deals">
+                    <app-shiping-banner></app-shiping-banner>
+                </ng-container>
+                <ng-template #deals>
+                    <app-offer-banner></app-offer-banner>
+                </ng-template>
+            </div>
+        </section>
+
+        <section class="best-selling py-4 offers" *ngIf="section.sectionType == 0" [ngClass]="'offer-'+index">
+            <div class="container">
+                <h2 class="offer-heading wt-800 mb-3"> <i [innerHTML]="icons.offer | safeHtml"></i> {{section.name}}</h2>
+                <div class="row">
+                    <div class="col-6 col-md-3 mb-4" *ngFor="let offer of section.sliders">
+                        <ngx-skeleton-loader *ngIf="index == 0 ? !offersLoaded1 : !offersLoaded2" animation="progress"></ngx-skeleton-loader>
+                        <app-offer-item *ngIf="index == 0 ? offersLoaded1 : offersLoaded2" [data]="offer"></app-offer-item>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-4 tabsection" *ngIf="section.sectionType == 1" [ngClass]="'tabs-'+index">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2 d-flex d-md-block justify-content-between align-items-center">
+                        <h3 class="wt-800 font25 m-0">{{section.name}}</h3>
+                    </div>
+                    <div class="col-md-8">
+                        <ul class="nav nav-pills justify-content-md-center my-3 my-md-2 mt-md-0 p-0" id="pills-tab" role="tablist">
+                            <li *ngFor="let item of section?.category; index as i" class="nav-item" role="presentation">
+                                <button [ngClass]="{'active':i==0}" (click)="resize(index)" class="nav-link" [id]="'pills-'+i+index" data-bs-toggle="pill" [attr.data-bs-target]="'#pills-tab'+i+index" type="button" role="tab" aria-controls="pills1" aria-selected="true">{{item.name}}</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 text-end d-none d-md-block">
+                        <a href="#" class="theme-color wt-600 font20">عرض الكل</a>
+                    </div>
+                </div>
+                <div class="tab-content p-md-4" id="pills-tabContent">
+                    <div *ngFor="let item of section?.category; index as i" class="tab-pane fade" [id]="'pills-tab'+i+index" role="tabpanel" aria-labelledby="pills1" [ngClass]="{'show active':i==0}">
+                        <div class="px-md-3">
+                            <ngx-skeleton-loader count="2" *ngIf="index == 1 ? !tabLoaded1 : index == 5 ? !tabLoaded2 : index == 6 ? !tabLoaded3 : index == 7 ? !tabLoaded4 : !tabLoaded5" animation="progress"></ngx-skeleton-loader>
+                            <app-products-carousel (modalData)="getModal($event)" *ngIf="index == 1 ? tabLoaded1 : index == 5 ? tabLoaded2 : index == 6 ? tabLoaded3 : index == 7 ? tabLoaded4 : tabLoaded5" [data]="item?.products"></app-products-carousel>
+                        </div>
+                    </div>
+                </div>
+                <a class="viewAll d-md-none theme-bg text-center rounded-3 m-3 text-white wt-700 font16 d-block" href="#">عرض الكل</a>
+            </div>
+        </section>
+    </ng-container>
+    <section class="brands">
+        <ngx-skeleton-loader *ngIf="!brandLoaded" animation="progress" count="2"></ngx-skeleton-loader>
+        <app-brands *ngIf="brandLoaded"></app-brands>
+    </section>
+</main>
+
+<!-- Quick Modal -->
+<div class="modal fade" id="quickModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl">
+        <div class="modal-content border-0 rounded-3 h-100">
+            <div class="modal-header p-0 border-0 text-start justify-content-end">
+                <button type="button" class="btn-close ms-0 p-4" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body pt-md-0">
+                <app-quick-modal *ngIf="productId" [product]="productId"></app-quick-modal>
+            </div>
+        </div>
+    </div>
+</div>

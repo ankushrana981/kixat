@@ -1,0 +1,139 @@
+<section class="py-md-4">
+    <div class="container">
+        <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='12'%3E%3Cpath d='M6.01283 0.191854L0.667879 5.5369C0.544367 5.66042 0.476562 5.8251 0.476562 6.00451C0.476562 6.18032 0.544367 6.3451 0.667879 6.46841L6.00776 11.8085C6.13137 11.932 6.29615 12 6.47195 12C6.64776 12 6.81263 11.9321 6.93615 11.8085L7.32941 11.4152C7.45292 11.2917 7.52112 11.1268 7.52112 10.951C7.52112 10.7752 7.45292 10.6104 7.32941 10.4868L2.84524 6.00266L7.33458 1.51351C7.458 1.39 7.52609 1.22522 7.52609 1.04931C7.52609 0.873509 7.458 0.708828 7.33458 0.585218L6.94112 0.191854C6.68522 -0.0639495 6.26873 -0.0639495 6.01283 0.191854Z' fill='currentColor'/%3E%3C/svg%3E&#34;);">
+            <ol class="breadcrumb wt-500 font16 my-3 mb-4">
+                <li class="breadcrumb-item "><a [routerLink]="['/']" class="content-main">الرئيسية</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{data.categoryName}}</li>
+            </ol>
+        </nav>
+        <app-category-carousel [theme]="'red'" [data]="sliders"></app-category-carousel>
+    </div>
+</section>
+
+<section class="best-selling offers py-4 mt-md-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 d-flex d-md-block justify-content-between align-items-center">
+                <h3 class="wt-800 font25 m-0">الأكثر مبيعاً في الالكترونيات</h3>
+            </div>
+            <div class="col-md-6 text-end d-none d-md-block">
+                <a href="#" class="theme-color wt-600 font20">عرض الكل</a>
+            </div>
+        </div>
+        <div class="p-md-4 pt-4">
+            <div class="px-md-3">
+                <app-products-carousel [data]="products"></app-products-carousel>
+            </div>
+            <a class="viewAll d-md-none theme-bg text-center rounded-3 m-3 text-white wt-700 font16 d-block" href="#">عرض الكل</a>
+        </div>
+    </div>
+</section>
+
+<section class="pb-4">
+    <div class="container">
+        <h3 class="wt-800 font25 m-0">تصفح حسب الفئات الفرعية</h3>
+        <div class="row mt-4">
+            <div class="col-md-2 col-6" *ngFor="let item of subCategory">
+                <div class="item sub-cat text-center mb-md-5 mb-4 pt-1 pt-md-0 cursor">
+                    <div class="thumb p-2 bg-light rounded mb-3">
+                        <img [src]="item.image">
+                    </div>
+                    <h3 class="wt-700 font14">{{item.name}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="best-selling offers py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 d-flex d-md-block justify-content-between align-items-center">
+                <h3 class="wt-800 font25 m-0">ساعات ذكية</h3>
+            </div>
+            <div class="col-md-6 text-end d-none d-md-block">
+                <a href="#" class="theme-color wt-600 font20">عرض الكل</a>
+            </div>
+        </div>
+        <div class="p-md-4 pt-4">
+            <div class="px-md-3">
+                <app-products-carousel [data]="products"></app-products-carousel>
+            </div>
+            <a class="viewAll d-md-none theme-bg text-center rounded-3 m-3 text-white wt-700 font16 d-block" href="#">عرض الكل</a>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <app-category-carousel [theme]="null" [data]="sliders"></app-category-carousel>
+    </div>
+</section>
+
+
+<section class="best-selling offers py-4 mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 d-flex d-md-block justify-content-between align-items-center">
+                <h3 class="wt-800 font25 m-0">اللابتوب</h3>
+            </div>
+            <div class="col-md-6 text-end d-none d-md-block">
+                <a href="#" class="theme-color wt-600 font20">عرض الكل</a>
+            </div>
+        </div>
+        <div class="p-md-4 pt-4">
+            <div class="px-md-3">
+                <app-products-carousel [data]="products"></app-products-carousel>
+            </div>
+            <a class="viewAll d-md-none theme-bg text-center rounded-3 m-3 text-white wt-700 font16 d-block" href="#">عرض الكل</a>
+        </div>
+    </div>
+</section>
+
+
+<section class="pb-2">
+    <div class="container text-center">
+        <div class="d-flex justify-content-between mb-2 align-items-center mb-md-0">
+            <span class="font25 wt-800">
+                تصفح البراندات
+            </span>
+            <a href="#" class="font20 wt-600 theme-color d-none d-md-inline-block">
+                عرض الكل
+            </a>
+        </div>
+        <div class="row row-cols-3 row-cols-lg-6 g-2 g-lg-3 gy-lg-4 mt-md-1">
+            <div class="col">
+                <div class="brandBox d-flex align-items-center justify-content-center">
+                    <img src="assets/icons/maybelline.svg" class="img-fluid ">
+                </div>
+            </div>
+            <div class="col ">
+                <div class="brandBox d-flex align-items-center justify-content-center">
+                    <img src="assets/icons/braun-logo.svg" class="img-fluid">
+                </div>
+            </div>
+            <div class="col ">
+                <div class="brandBox d-flex align-items-center justify-content-center">
+                    <img src="assets/icons/logitech.svg" class="img-fluid">
+                </div>
+            </div>
+            <div class="col ">
+                <div class="brandBox d-flex align-items-center justify-content-center">
+                    <img src="assets/icons/guess.svg" class="img-fluid">
+                </div>
+            </div>
+            <div class="col ">
+                <div class="brandBox d-flex align-items-center justify-content-center">
+                    <img src="assets/icons/etude.svg" class="img-fluid">
+                </div>
+            </div>
+            <div class="col ">
+                <div class="brandBox d-flex align-items-center justify-content-center">
+                    <img src="assets/icons/loreal.svg" class="img-fluid">
+                </div>
+            </div>
+        </div>
+
+        <a class="viewAll d-md-none theme-bg text-center rounded-3 m-3 text-white wt-700 font16 d-block" href="#">عرض الكل</a>
+    </div>
+</section>

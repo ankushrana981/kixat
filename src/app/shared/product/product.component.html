@@ -1,0 +1,104 @@
+<ng-container *ngIf="style; else default">
+    <div class=" product position-relative py-3">
+        <div class="row m-md-0">
+            <div class="col-md-3 order-1">
+                <div class="thumb text-center position-relative">
+                    <app-image-loader class="cursor" [routerLink]="['/product',product.slug]" *ngIf="product" [image]="baseUrl+product.thumbnailImageUrl" [alt]="product.name"></app-image-loader>
+                </div>
+            </div>
+            <div class="col-md-7 order-2 order-md-2 mt-3 mt-md-0 d-md-flex align-content-center flex-column">
+                <div>
+                    <h3 class="title wt-700 font20 cursor" [routerLink]="['/product',product.slug]">
+                        {{product.name}}
+                    </h3>
+                    <span *ngIf="product.rate" class="wt-700 font18 text-secondary">
+                        <span class="content-light wt-500">التقييم: </span> <i [innerHTML]="icons.star | safeHtml"></i> {{product.rate}} <span class="wt-400 content-light">(5) </span>
+                    </span>
+
+                    <h4 class="wt-700 font25 price m-0 mt-4">
+                        <span *ngIf="product.oldPrice" class="theme-color">
+                            {{product?.calculatedProductPrice?.priceString}} <del class="title wt-500 font18">{{product?.calculatedProductPrice?.oldPriceString}}</del>
+                        </span>
+                        <span *ngIf="!product.oldPrice">{{product?.calculatedProductPrice?.priceString}}</span>
+
+
+                        <span *ngIf="product.off" class="ms-3 red-light px-2 py-1 theme-color wt-700 font14 d-inline-block rounded">
+                            {{product.off}}
+                        </span>
+                    </h4>
+                    <p class="theme-color wt-500 mt-2">متبقي {{product.stock}} فقط في المخزون</p>
+                </div>
+
+                <button *ngIf="!product.showOption && product.stock>0" class="mt-auto btn w-100 theme-bg text-white wt-700 font14">
+                    <i [innerHTML]="icons.plus | safeHtml" class="me-1"></i>  اضف الى عربة التسوق
+                </button>
+                <button *ngIf="product.showOption && product.stock>0" class="mt-auto btn w-100 theme-color wt-700 font14">
+                    عرض الخيارات
+                </button>
+                <button *ngIf="product.stock == 0" class="mt-auto btn w-100 disabled wt-700 font14">
+                    غير متوفر
+                </button>
+
+            </div>
+            <div class="col-md-2 order-1 order-md-3 text-end d-flex align-content-center flex-md-column">
+                <div class="hover position-static me-4 me-md-0">
+                    <i (click)="addWishlist(product.id)" [innerHTML]="icons.heart | safeHtml" class="bg-white" title="اضف إلى المفضلة"></i>
+                    <i (click)="compare(product.id)" [innerHTML]="icons.compareBlack | safeHtml" class="bg-white d-none d-md-inline-flex" title="يقارن"></i>
+                    <i (click)="quickModal(product.slug)" [innerHTML]="icons.quickView | safeHtml" class="bg-white d-none d-md-inline-flex" title="مشاهدة سريعة"></i>
+                </div>
+
+                <span class="btn shiping bg-light d-block content-medium mt-auto" *ngIf="product.freeShiping">
+                    <i [innerHTML]="icons.shipping | safeHtml" class="me-1"></i>    شحن مجاني
+                </span>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<ng-template #default>
+    <div class="product position-relative default">
+        <div class="header-part d-flex">
+            <span *ngIf="product.off" class="off theme-color wt-700 font14 d-inline-block">
+                {{product.off}}
+            </span>
+            <span *ngIf="product.rate" class="rate wt-700 font14 d-none d-md-inline-block ms-auto">
+                <i [innerHTML]="icons.star | safeHtml"></i> {{product.rate}}
+            </span>
+        </div>
+        <div class="thumb mb-3 text-center position-relative">
+            <app-image-loader class="cursor" [routerLink]="['/product',product.slug]" *ngIf="product" [image]="baseUrl+(product.thumbnailImageUrl ? product.thumbnailImageUrl : product.productImage)" [alt]="product.name ? product.name : product.productName"></app-image-loader>
+            <div class="hover position-absolute">
+                <i (click)="addWishlist(product.id)" [innerHTML]="icons.heart | safeHtml" class="bg-white" title="اضف إلى المفضلة"></i>
+                <i (click)="compare(product.id)" [innerHTML]="icons.compareBlack | safeHtml" class="bg-white d-none d-md-inline-flex" title="يقارن"></i>
+                <i (click)="quickModal(product.slug)" [innerHTML]="icons.quickView | safeHtml" class="bg-white d-none d-md-inline-flex" title="مشاهدة سريعة"></i>
+            </div>
+        </div>
+        <h3 class="title wt-500 font16 cursor" [routerLink]="['/product',product.slug]">
+            {{product.name ? product.name : product.productName}}
+        </h3>
+        <h4 class="wt-700 font20 price m-0">
+            <span *ngIf="product.off" class="theme-color">
+                {{product?.calculatedProductPrice?.priceString}} <del class="title wt-500 font16">{{product?.oldPrice}}</del>
+            </span>
+            <span *ngIf="!product.off">{{product?.calculatedProductPrice?.priceString}}</span>
+        </h4>
+        <button (click)="addToCart(product)" class="my-3 mb-2 btn w-100 theme-bg text-white wt-700 font14">
+            <i [innerHTML]="icons.plus | safeHtml" class="me-1 d-none d-md-inline-block"></i>  اضف الى عربة التسوق
+        </button>
+        <button *ngIf="product.showOption && product.stock>0" class="my-3 mb-2 btn w-100 theme-color wt-700 font14">
+            عرض الخيارات
+        </button>
+        <button *ngIf="product.stock == 0" class="my-3 mb-2 btn w-100 disabled wt-700 font14">
+            غير متوفر
+        </button>
+        <div class="footer-part d-flex justify-content-between align-items-center">
+            <span *ngIf="product.rate" class="rate wt-700 font14 d-inline-block d-md-none">
+                <i [innerHTML]="icons.star | safeHtml"></i> {{product.rate}}
+            </span>
+            <span class="theme-color wt-500 d-none d-md-inline-block">متبقي {{product.stock}} فقط في المخزون</span>
+            <span class="shiping bg-light" *ngIf="product.freeShiping">
+                <i [innerHTML]="icons.shipping | safeHtml" class="me-1 d-none d-md-inline-block"></i>    شحن مجاني
+            </span>
+        </div>
+    </div>
+</ng-template>

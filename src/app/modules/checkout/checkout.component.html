@@ -1,0 +1,294 @@
+<app-mini-header [isLoged]="true"></app-mini-header>
+<section class="pb-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2 class="font20 wt-600 mt-4 pt-2">تفاصيل التوصيل و الدفع</h2>
+                <div class="card mt-4">
+                    <div class="card-header bg-light font18 wt-600 border-0 p-2">
+                        <div class="my-1 px-2">
+                            <i class="me-2" [innerHTML]="icons.truck | safeHtml"></i> عنوان الشحن <i [innerHTML]="icons.completed | safeHtml" class="ms-2"></i>
+                        </div>
+                    </div>
+                    <div class="card-body p-2 ps-md-5">
+                        <div class="address ps-md-2">
+                            <label for="address1" class="mb-3 d-block">
+                                <input type="radio" name="address" id="address1">
+                                <div class="p-3 bg-extra-light rounded-3 font14 wt-400 addressItem">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <h6 class="wt-700 mb-1">Sara Youssry</h6>
+                                            <P class="mb-2">+20100 000 0000</P>
+                                            <p class="m-0">
+                                                <span>الاسكندرية - سيدي جابر - شارع ١ - منطقة</span>
+                                                <span class="wt-700 text-secondary d-inline-block mx-4">تعديل
+                                                    العنوان</span>
+                                            </p>
+                                        </div>
+                                        <div class="col-md-4 text-md-end mt-3 mt-md-0 ps-md-0">
+                                            <span class="text-white btn btn-default font14 wt-500 me-3">المنزل</span>
+                                            <span class="btn px-3 bg-secondary text-white rounded-3"
+                                                (click)="defaultAddress()">العنوان الافتراضي</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
+                            <label for="address2" class="mb-3 d-block">
+                                <input type="radio" name="address" id="address2">
+                                <div class="p-3 bg-extra-light rounded-3 font14 wt-400 addressItem">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <h6 class="wt-700 mb-1">Sara Youssry</h6>
+                                            <P class="mb-2">+20100 000 0000</P>
+                                            <p class="m-0">
+                                                <span>الاسكندرية - سيدي جابر - شارع ١ - منطقة</span>
+                                                <span class="wt-700 text-secondary d-inline-block mx-4">تعديل
+                                                    العنوان</span>
+                                            </p>
+                                        </div>
+                                        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                                            <span class="text-white btn btn-default font14 wt-500">مكان العمل</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                        <button data-bs-toggle="modal" data-bs-target="#addressModal" class="btn bg-transparent text-secondary font14 wt-700 mt-2">
+                            <i class="me-2" [innerHTML]="icons.plusYellow | safeHtml"></i> اضف عنوان جديد
+                        </button>
+                        <div class="text-md-end">
+                            <button class="btn font16 wt-500 mt-2 theme-bg text-white">
+                                تأكيد العنوان
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-4">
+                    <div class="card-header bg-light font18 wt-600 border-0 p-2">
+                        <div class="my-1 px-2">
+                            <i class="me-2" [innerHTML]="icons.payment | safeHtml"></i> طريقة الدفع
+                        </div>
+                    </div>
+                    <div class="card-body p-4 pt-md-0">
+
+                        <div class="address ps-md-2">
+                            <label for="payment1" class="d-block">
+                                <input type="radio" name="payment" id="payment1" value="1">
+                                <div
+                                    class="p-3 border-bottom pb-3 font18 wt-600 addressItem payment ps-md-5  d-flex  align-items-center">
+                                    الدفع كاش عند الإستلام
+                                </div>
+                            </label>
+
+                            <label for="payment2" class="d-block">
+                                <input type="radio" name="payment" id="payment2" value="2">
+                                <div
+                                    class="p-3 border-bottom pb-3 font18 wt-600 addressItem payment ps-md-5 d-flex align-items-center">
+
+                                    بطاقة ائتمانية
+                                    <span class="ms-auto">
+                                        <img src="assets/icons/visa.svg" alt="">
+                                    </span>
+                                </div>
+                            </label>
+
+                            <label for="payment3" class="d-block">
+                                <input type="radio" name="payment" id="payment3" value="3">
+                                <div
+                                    class="p-3 border-bottom pb-3 font18 wt-600 addressItem payment ps-md-5 d-flex align-items-center">
+
+                                    <div>
+                                        محافظ الكترونية <button
+                                            class="align-top btn theme-color p-1 rounded font14 wt-700 bg-primaryLight ms-3">
+                                            احصل على خصم 10%</button>
+                                    </div>
+                                    <span class="ms-auto">
+                                        <img src="assets/icons/visa.svg" alt="">
+                                        <img src="assets/icons/visa.svg" alt="">
+                                    </span>
+                                </div>
+                            </label>
+
+                            <label for="payment4" class="d-block">
+                                <input type="radio" name="payment" id="payment4" value="4">
+                                <div
+                                    class="p-3 border-bottom pb-3 font18 wt-600 addressItem payment ps-md-5 d-flex align-items-center">
+                                    <div>
+                                        <p class="content-light font18 wt-500 m-0">انظمة التقسيط</p>
+                                        الدفع عن طريق valU <img src="assets/icons/visa.svg" alt="">
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <ng-container *ngIf="isLoading; else cartData">
+                    <div class="py-4">
+                        <ngx-skeleton-loader animation="progress" count="2"></ngx-skeleton-loader>
+                    </div>
+                </ng-container>
+                <ng-template #cartData>
+                    <div class="bg-extra-light p-3 p-md-4 h-100">
+                        <h3 class="font20 wt-600">منتجاتك في هذا الطلب ({{cart.items.length}})</h3>
+                        <p class="font16 wt-500 theme-color">
+                            <span class="content-medium">الطلب يصلك بين:</span> الاثنين 28 نوفمبر - الاربعاء 30 نوفمبر
+                        </p>
+                        <div class="orders bg-white p-2 my-4">
+                            <div class="row mb-3 mx-md-0" *ngFor="let data of cart?.items">
+                                <div class="col-md-3">
+                                    <div class="thumb border rounded-3 p-2 text-center"><img src="{{baseUrl+data.productImage}}" alt="{{data.productName}}"></div>
+                                </div>
+                                <div class="col-md-7 font16 wt-500">
+                                    <h3 class="font16 wt-500 title mt-3 mt-md-0">{{data.productName}}</h3>
+                                    <p class="content-light m-0">120</p>
+                                    <span class="priceinfo font18 wt-600 theme-color d-flex align-items-center justify-content-between d-md-inline-block">
+
+                                    <span> <span class="price">{{data.productPriceString}}</span>
+                                    <del class="d-md-block content-light font14 wt-500 ms-2 ms-md-0">15,700
+                                            ج.م</del></span>
+                                    <span class="font14 wt-700 content-main">x{{data.quantity}}</span>
+                                    </span>
+                                    <button class="align-top btn theme-color p-1 rounded font14 wt-700 bg-primaryLight ms-md-3 mt-2 mt-md-0">خصم
+                                    10%</button>
+                                </div>
+                                <div class="col-md-2 text-end  d-none d-md-block">
+                                    <span class="font14 wt-700  d-md-none">x{{data.quantity}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <h2 class="font18 wt-500 d-flex">
+                            المجموع الفرعي <span class="font20 wt-600 ms-auto">{{cart.subTotalString}}</span>
+                        </h2>
+                        <h2 class="font18 wt-500 d-flex">
+                            مصاريف الشحن <span class="font20 wt-600 ms-auto">{{cart.shippingAmountString}}</span>
+                        </h2>
+                        <hr>
+                        <h2 class="font20 wt-600 d-flex">
+                            الإجمالي <span class="font25 wt-800 ms-auto">{{cart.subTotalString}}</span>
+                        </h2>
+                        <button type="button" class="btn theme-bg text-white w-100 mt-4 lg-button">
+                        تأكيد عملية الشراء
+                    </button>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Modal -->
+<div class="modal fade" id="addressModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content rounded-3 border-0">
+            <div class="modal-body p-md-4">
+                <h2 class="font20 wt-600 mb-4">إضافة عنوان جديد</h2>
+
+
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <div class="form-group mb-4">
+                        <div class="control-wrapper position-relative">
+                            <span class="icon position-absolute" [innerHTML]="icons.userLight | safeHtml">
+                            </span>
+                            <input formControlName="firstName" id="firstName" type="text" class="form-control font16 wt-500">
+                            <label for="firstName" class="position-absolute">الاسم الأول</label>
+                            <p *ngIf="form.controls['firstName'].invalid && form.controls['firstName'].touched" class="text-danger text-end"> <i [innerHTML]="icons.infoIcon | safeHtml"></i> يرجى إدخال بريد الكتروني صحيح </p>
+                        </div>
+                    </div>
+                    <div class="form-group mb-4">
+                        <div class="control-wrapper position-relative">
+                            <span class="icon position-absolute" [innerHTML]="icons.userLight | safeHtml">
+                            </span>
+                            <input formControlName="lastName" id="lastName" type="text" class="form-control font16 wt-500">
+                            <label for="lastName" class="position-absolute">الاسم الأول</label>
+                            <p *ngIf="form.controls['lastName'].invalid && form.controls['lastName'].touched" class="text-danger text-end"> <i [innerHTML]="icons.infoIcon | safeHtml"></i> يرجى إدخال بريد الكتروني صحيح </p>
+                        </div>
+                    </div>
+                    <div class="form-group mb-4">
+                        <div class="control-wrapper position-relative">
+                            <span class="icon position-absolute" [innerHTML]="icons.email | safeHtml">
+                            </span>
+                            <input formControlName="email" id="email" type="email" class="form-control font16 wt-500">
+                            <label for="email" class="position-absolute">البريد الالكتروني</label>
+                            <p *ngIf="form.controls['email'].invalid && form.controls['email'].touched" class="text-danger text-end"> <i [innerHTML]="icons.infoIcon | safeHtml"></i> يرجى إدخال بريد الكتروني صحيح </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 col-4">
+                            <div class="control-wrapper">
+                                <div class="form-group mb-4">
+                                    <select id="inputState" class="form-select form-control form-txt" placeholder="State">
+                                        <option value="State" selected="">+20</option>
+                                        <option value="">1</option>
+                                        <option value="">2</option>
+                                        <option value="">3</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9 col-8">
+                            <div class="form-group mb-4">
+                                <div class="control-wrapper position-relative">
+                                    <span class="icon position-absolute" [innerHTML]="icons.phone | safeHtml">
+                                    </span>
+                                    <input formControlName="phone" id="number" type="text" class="form-control font16 wt-500">
+                                    <label for="number" class="position-absolute">رقم الهاتف</label>
+                                    <p *ngIf="form.controls['phone'].invalid && form.controls['phone'].touched" class="text-danger text-end"> <i [innerHTML]="icons.infoIcon | safeHtml"></i> يرجى إدخال بريد الكتروني صحيح </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group mb-4">
+                        <div class="control-wrapper position-relative">
+                            <select id="country" formControlName="country" id="inputState" class="form-select form-control form-txt" (change)="getState($event)">
+                                <option *ngFor="let data of countries" value="{{data.id}}">
+                                    {{data.name}}</option>
+                            </select>
+                            <label for="country" class="position-absolute">بلد</label>
+                        </div>
+                    </div>
+                    <div class="form-group mb-4">
+                        <div class="control-wrapper position-relative">
+                            <select id="state" formControlName="state" id="inputState" class="form-select form-control form-txt">
+                                <option  value=""></option>
+                            </select>
+                            <label for="state" class="position-absolute">ولاية</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <div class="control-wrapper position-relative">
+                            <input formControlName="city" id="city" type="text" class="form-control font16 wt-500">
+                            <label for="city" class="position-absolute">مدينة</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <div class="control-wrapper position-relative">
+                            <textarea id="address" formControlName="address" class="form-control form-txt"></textarea>
+                            <label for="address" class="position-absolute"> العنوان بالتفصيل (إسم الشارع - المنطقة - رقم
+                                العمارة - رقم الشقة)</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <div class="control-wrapper position-relative">
+                            <input formControlName="title" id="title" type="text" class="form-control font16 wt-500">
+                            <label for="title" class="position-absolute">اسم العنوان (اختياري)</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="rounded-3 theme-bg w-100 border-0 text-white lg-button font18 wt-600 close" data-dismiss="modal" aria-label="Close">
+                        إضافة العنوان
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

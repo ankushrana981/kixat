@@ -1,0 +1,104 @@
+<ng-container *ngIf="isLoading; else info">
+    <div class="p-5">
+        <ngx-skeleton-loader animation="progress" count="2"></ngx-skeleton-loader>
+    </div>
+</ng-container>
+<ng-template #info>
+    <div class="product-details row py-md-4 pt-md-0 position-relative">
+        <div class="col-md-6">
+            <app-product-gallery [gallery]="data?.images"></app-product-gallery>
+            <button data-bs-dismiss="modal" [routerLink]="['/product',data.slug]" type="button" class="w-100 mt-3 btn theme-color lg-button border font14 wt-700">
+                عرض تفاصيل المنتج كاملة 
+            </button>
+        </div>
+    
+        <div class="col-md-6">
+            <!-- first section -->
+            <div class="d-md-flex justify-content-between product border-bottom pb-2 py-3
+            ">
+                <div class="col-md-9">
+                    <h2 class="font20 wt-700">{{data.name}}</h2>
+                    <div class="d-flex text-md-center">
+                        <!-- attributes -->
+                        <div class="font16 wt-500 border-end pe-3 me-3" *ngFor="let option of data.attributes">
+                            <label class="content-light text-capitalize">{{option.name}} : </label>
+                            <span>{{option.value}}</span>
+                        </div>
+                        <div class="">
+                            <label for="name" class="content-light">التقييم: </label>
+                            <span class="wt-700 font14 d-inline-block ms-auto star px-md-1">
+                                <ng-container *ngIf="data.ratingAverage; else noReview">
+                                    <i [innerHTML]="icons.star | safeHtml"></i> {{data.ratingAverage}}
+                                </ng-container>
+                                <ng-template #noReview>No rating available </ng-template>
+                            </span>
+                            <span class="content-light mx-md-1">({{data.reviewsCount}})</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-1 d-flex hover justify-content-end">
+                    <i (click)="addWishlist(data.id)" [innerHTML]="icons.heart | safeHtml" class="bg-white me-3 me-md-0 heart" title="اضف إلى المفضلة"></i>
+                    <i (click)="compare(data.id)" [innerHTML]="icons.compareBlack | safeHtml" class="bg-white mx-md-2 mt-1 mt-md-0 me-3 me-md-0 d-none d-md-inline-flex" title="يقارن"></i>
+                </div>
+            </div>
+    
+            <p class="py-3 wt-700 font20 theme-color mb-1">
+                <span class="font25 wt-800">{{data.calculatedProductPrice.priceString}}</span>
+                <span class="content-light mb-1 px-3 font18 wt-600 text-decoration-line-through">{{data.calculatedProductPrice.oldPriceString}}</span>
+                <span class="p-1 rounded font14 wt-700 bg-primaryLight">خصم {{data.calculatedProductPrice.percentOfSaving}}%</span>
+            </p>
+            <!-- variations  -->
+            <div *ngIf="data.availableOptions">
+                <div class="font16 wt-500" *ngFor="let option of data.availableOptions">
+                    <ng-container *ngIf="option.optionName == 'Size'; else selectColor">
+                        <span class="content-light text-capitalize">{{option.optionName}}:</span>
+                    <span class="px-1">
+                       {{activeSize}}
+                    </span>
+                    <p class="mt-2">
+                        <button (click)="activeSize = item" *ngFor="let item of option.values"
+                    [ngClass]="activeSize == item ? 'border-danger border-1' : 'border-0'"
+                    class="gbBtn font16 wt-500 rounded bg-light  ms-2">{{item}}</button>
+                    </p>
+                    </ng-container>
+                    <ng-template #selectColor>
+                        <span class="content-light text-capitalize">{{option.optionName}}:</span>
+                    <span class="px-1">
+                        {{activeColor}}
+                    </span>
+                    <p class="mt-2">
+                        <button [style]="{'background': item}" (click)="activeColor = item" *ngFor="let item of option.values"
+                        [ngClass]="activeColor == item ? 'border-danger border-1' : 'border-0'"
+                        class="gbBtn font16 wt-500 rounded text-white ms-2">{{item}}</button>
+                    </p>
+                    </ng-template>
+                </div>                
+            </div>
+            <p class="font16 wt-500 text-danger">
+                <span>متبقي 2 فقط في المخزون</span>
+            </p>
+    
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-4">
+                    <div class="dropdown d-inline-block text-center border rounded p-2 w-100">
+                        <span class="content-light font16 wt-500">الكمية:</span>
+                        <button class="border-0 wt-700 font14 p-2 pe-md-0 dropdown-toggle bg-transparent" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="font16 wt-500 d-inline-block me-md-4 me-2 ms-md-2 p-0 border-start ps-md-2">x {{quantity}}</span> <i
+                                [innerHTML]="icons.downArrowBlack | safeHtml"></i></button>
+                        <ul class="dropdown-menu border-0" aria-labelledby="dropdownMenuButton1">
+                            <li *ngFor="let item of [].constructor(10); index as index">
+                                <a class="dropdown-item" (click)="quantity = index+1">{{index+1}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <button data-bs-dismiss="modal" (click)="addToCart(data)" type="button" class=" mt-3 mt-md-0 btn w-100 button text-white theme-bg border-0 font14 addToCartBtn">
+                        <i class="me-1" [innerHTML]="icons.plusRed | safeHtml"></i>اضف الى عربة التسوق
+                    </button>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+</ng-template>

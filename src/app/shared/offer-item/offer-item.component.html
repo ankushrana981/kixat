@@ -1,0 +1,13 @@
+<div class="offer rounded bg-light" [ngClass]="offer?.align">
+    <div class="p-md-3 p-2">
+        <h3 class="m-0 bg-dark d-inline-block text-white title rounded font20 wt-800 mt-md-4">
+            {{offer.name}}
+        </h3>
+        <div class="discount wt-500 font16">
+            حتى <span class="text-white wt-800 d-inline-block theme-bg">{{offer.offer}}</span>
+        </div>
+    </div>
+    <div class="thumb">
+        <img class="img-fluid" [src]="baseUrl+offer.thumbnailImageUrl" [alt]="offer.name">
+    </div>
+</div>

@@ -1,0 +1,35 @@
+@import "../../../assets/style/variables";
+.sub-cat {
+    .thumb {
+        height: 140px;
+        img {
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+    &:hover h3 {
+        color: $primary;
+    }
+}
+
+.pagination {
+    .page-link {
+        cursor: pointer;
+        &:hover {
+            background: none;
+            color: $primary;
+        }
+        &.right-arrow,
+        &.left-arrow {
+            background: $primary;
+        }
+        &.left-arrow {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+app-product {
+    margin-bottom: -1px;
+    display: block;
+}

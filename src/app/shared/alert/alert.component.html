@@ -1,0 +1,11 @@
+<div class="alerts">
+	<div *ngFor="let alert of alerts" class="alert" [ngClass]="className(alert)">
+		<ng-container *ngTemplateOutlet="alertTpl;context:{alert:alert}"></ng-container>
+	</div>
+</div>
+
+<ng-template #alertTpl let-alert="alert">
+
+	<div class="alert theme-bg text-white m-0 font16">{{alert.message}}</div>
+
+</ng-template>

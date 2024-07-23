@@ -1,0 +1,51 @@
+@import "../../../assets/style/variables";
+.product-details {
+    .viewMore {
+        background: $secondary;
+    }
+    .return {
+        line-height: 25px;
+    }
+    .padding {
+        padding: 8px 12px;
+    }
+    .gbBtn {
+        padding: 5px 12px;
+    }
+    .freeShipping {
+        color: $secondary;
+    }
+    .star {
+        color: $secondary;
+    }
+    .hover {
+        .heart {
+            @media (max-width: 767.98px) {
+                position: absolute;
+                top: 20px;
+                left: 5px;
+            }
+        }
+        i {
+            border: 1px solid $bg-medium;
+            border-radius: 9px;
+            cursor: pointer;
+            padding: 7px;
+            height: 46px;
+            width: 46px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+button.theme-color {
+    border-color: $primary !important;
+}
+
+@media (max-width: 767.98px) {
+    .font16 {
+        font-size: 13px;
+    }
+}
